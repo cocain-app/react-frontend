@@ -1,25 +1,42 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Search from './Search';
+import axios from 'axios';
 
 class App extends Component {
+  constructor(props){
+    super(props)
+
+    this.state = {
+      suggestions: {}
+    }
+  }
+
+  searchSuggestions = data => {
+    let headers = {
+      songTitle: data.songTitle
+    }
+    axios.get('http://127.0.0.1:8000/api/suggestions', { headers: headers })
+         .then(res => {
+           this.setState({
+             ...this.state,
+             suggestions: res.data
+           })
+         })
+  }
+
   render() {
+    const {suggestions} = this.state;
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Search submit={data => this.searchSuggestions(data)} />
+        {
+            Object.values(suggestions).map((song) => 
+              <ul>{JSON.stringify(song)}</ul>
+            )
+        }
       </div>
     );
   }
