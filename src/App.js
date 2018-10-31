@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Search from './Search';
-import axios from 'axios';
+import Search from './components/Search';
+import api from './api';
 
 class App extends Component {
   constructor(props){
@@ -15,15 +14,13 @@ class App extends Component {
 
   searchSuggestions = data => {
     if(data.songTitle !== ""){
-      let headers = {
-        songTitle: data.songTitle
-      }
-      axios.get('http://127.0.0.1:8000/api/search', { headers: headers })
-           .then(res => {
-              if(res.data){
+      api.songs.search({songTitle: data.songTitle})
+           .then(searchResults => {
+             console.log(searchResults)
+              if(searchResults){
                   this.setState({
                     ...this.state,
-                    suggestions: res.data
+                    suggestions: searchResults
                   })
               }else{
                   this.setState({
