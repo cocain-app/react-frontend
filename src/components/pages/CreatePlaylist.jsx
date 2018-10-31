@@ -6,15 +6,20 @@ class CreatePlaylist extends Component {
   constructor(props){
     super(props)
 
+    //suggestions = search suggestions | transitions = song transition (suggestions)
     this.state = {
       suggestions: {}
     }
   }
 
+  //get the 10 most fitting songs by songname
   searchSuggestions = data => {
+    //check if field content has been cleared
     if(data.songTitle !== ""){
+      //trigger api request
       api.songs.search({songTitle: data.songTitle})
            .then(searchResults => {
+              //searchResults = data body of response
               if(searchResults){
                   this.setState({
                     ...this.state,
@@ -36,6 +41,7 @@ class CreatePlaylist extends Component {
   }
 
   render() {
+    //state/props shortcut
     const {suggestions} = this.state;
 
     return (
