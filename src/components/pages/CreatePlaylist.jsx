@@ -39,8 +39,11 @@ class CreatePlaylist extends Component {
     const {suggestions} = this.state;
 
     return (
-      <div className="App">
-        <Search submit={data => this.searchSuggestions(data)} suggestions={suggestions} />
+      <div>
+        <h1>Create Playlist</h1>
+        <div className="App">
+          <Search submit={data => this.searchSuggestions(data)} suggestions={suggestions} />
+        </div>
       </div>
     );
   }
