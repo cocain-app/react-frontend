@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
-import Search from './components/Search';
-import api from './api';
+import Search from '../Search';
+import api from '../../api';
 
-class App extends Component {
+class CreatePlaylist extends Component {
   constructor(props){
     super(props)
 
@@ -47,4 +46,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default CreatePlaylist;
