@@ -16,7 +16,6 @@ class App extends Component {
     if(data.songTitle !== ""){
       api.songs.search({songTitle: data.songTitle})
            .then(searchResults => {
-             console.log(searchResults)
               if(searchResults){
                   this.setState({
                     ...this.state,
