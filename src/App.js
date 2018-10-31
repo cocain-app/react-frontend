@@ -14,16 +14,30 @@ class App extends Component {
   }
 
   searchSuggestions = data => {
-    let headers = {
-      songTitle: data.songTitle
+    if(data.songTitle !== ""){
+      let headers = {
+        songTitle: data.songTitle
+      }
+      axios.get('http://127.0.0.1:8000/api/search', { headers: headers })
+           .then(res => {
+              if(res.data){
+                  this.setState({
+                    ...this.state,
+                    suggestions: res.data
+                  })
+              }else{
+                  this.setState({
+                    ...this.state,
+                    suggestions: {}
+                  })  
+              }
+           })  
+    }else{
+      this.setState({
+        ...this.state,
+        suggestions: {}
+      })    
     }
-    axios.get('http://127.0.0.1:8000/api/suggestions', { headers: headers })
-         .then(res => {
-           this.setState({
-             ...this.state,
-             suggestions: res.data
-           })
-         })
   }
 
   render() {
@@ -31,12 +45,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Search submit={data => this.searchSuggestions(data)} />
-        {
-            Object.values(suggestions).map((song) => 
-              <ul>{JSON.stringify(song)}</ul>
-            )
-        }
+        <Search submit={data => this.searchSuggestions(data)} suggestions={suggestions} />
       </div>
     );
   }

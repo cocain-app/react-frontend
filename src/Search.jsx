@@ -11,6 +11,13 @@ class Search extends Component {
         }
     }
 
+    componentDidUpdate(prevProps,prevState){
+        if(prevState.data !== this.state.data){
+            this.props
+                .submit(Object.assign(this.state.data))
+        }
+    }
+
     onChange = e => {
         this.setState({
             ...this.state,
@@ -33,23 +40,27 @@ class Search extends Component {
     }
 
     render() {
-        const {data, loading, errors} = this.state;
+        const {data} = this.state;
+        const {suggestions} = this.props
 
         return (
             <div>
                 <form onSubmit={this.onSubmit}>
-                    <label>
-                        Find suggestions:
-                        <input 
-                            id="songTitle"
-                            name="songTitle"
-                            type="text" 
-                            placeholder="song title"
-                            value={data.songTitle}
-                            onChange={this.onChange}
-                             />    
-                    </label>
+                    <input 
+                        id="songTitle"
+                        name="songTitle"
+                        type="text" 
+                        placeholder="song title"
+                        value={data.songTitle}
+                        onChange={this.onChange}
+                        autoComplete="off"
+                    />
                     <input type="submit" value="Search"/>
+                    {
+                        Object.values(suggestions).map((song) => 
+                        <ul key={song.ID}>{JSON.stringify(song)}</ul>
+                        )
+                    }
                 </form>    
             </div>
         );
