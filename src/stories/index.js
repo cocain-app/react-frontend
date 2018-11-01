@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 
 import ReccomendedSong from '../components/RecommendedSong';
 import Reccomendations from '../components/Reccomendations';
+import PlaylistHead from '../components/PlaylistHead';
 
 // Lukas
 storiesOf('Searchbar', module)
@@ -26,7 +27,7 @@ storiesOf('Song Row', module)
 // Ben
 storiesOf('Playlist Head', module)
   .add('default', () => (
-    <div></div>
+    <PlaylistHead coverUrl="https://i.scdn.co/image/2e9f7dcf75d85b94b2de0756fbfa10f8c8692880" />
   ))
 
 // Ben
