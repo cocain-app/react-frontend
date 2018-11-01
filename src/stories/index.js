@@ -2,6 +2,8 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 
+import ReccomendedSong from '../components/RecommendedSong';
+
 // Lukas
 storiesOf('Searchbar', module)
   .add('default', () => (
@@ -41,7 +43,7 @@ storiesOf('Recomendations', module)
 // Ben
 storiesOf('Reccomendation', module)
   .add('default', () => (
-    <div></div>
+    <ReccomendedSong title="Stinger" artist="Misanthrop & Synergy" bpm="172" musicalKey="C# Minor" previewUrl="https://p.scdn.co/mp3-preview/1f9fe7f744ff2f12464113197a037dc4a4248b9c?cid=774b29d4f13844c495f206cafdad9c86" coverUrl="https://i.scdn.co/image/a73b128cd1acb5769c435a2fcca961df2753bdc1"/>
   ))
 
 // Ben
