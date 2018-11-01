@@ -5,6 +5,7 @@ import { storiesOf } from '@storybook/react';
 import ReccomendedSong from '../components/RecommendedSong';
 import Reccomendations from '../components/Reccomendations';
 import PlaylistHead from '../components/PlaylistHead';
+import Dropdown, { DropdownItem, DropdownGroup } from '../components/Dropdown';
 
 // Lukas
 storiesOf('Searchbar', module)
@@ -55,5 +56,47 @@ storiesOf('Reccomendation', module)
 // Ben
 storiesOf('Dropdown', module)
   .add('default', () => (
-    <div></div>
+    <Dropdown>
+      <span>Test</span>
+      <DropdownItem>Option A</DropdownItem>
+      <DropdownItem>Option B</DropdownItem>
+      <DropdownItem>Option C</DropdownItem>
+    </Dropdown>
+  ))
+  .add('on Image', () => (
+    <Dropdown>
+      <img src="https://i.scdn.co/image/2e9f7dcf75d85b94b2de0756fbfa10f8c8692880" />
+      <DropdownItem>Option A</DropdownItem>
+      <DropdownItem>Option B</DropdownItem>
+      <DropdownItem>Option C</DropdownItem>
+    </Dropdown>
+  ))
+  .add('on Image (grouped)', () => (
+    <Dropdown>
+      <img src="https://i.scdn.co/image/2e9f7dcf75d85b94b2de0756fbfa10f8c8692880" />
+      <DropdownGroup>Group 1</DropdownGroup>
+      <DropdownItem>Option A</DropdownItem>
+      <DropdownItem>Option B</DropdownItem>
+      <DropdownItem>Option C</DropdownItem>
+      <DropdownGroup>Group 2</DropdownGroup>
+      <DropdownItem>Option A</DropdownItem>
+      <DropdownItem>Option B</DropdownItem>
+      <DropdownItem>Option C</DropdownItem>
+    </Dropdown>
+  ))
+  .add('on Image (start)', () => (
+    <Dropdown start>
+      <img src="https://i.scdn.co/image/2e9f7dcf75d85b94b2de0756fbfa10f8c8692880" />
+      <DropdownItem>Option A</DropdownItem>
+      <DropdownItem>Option B</DropdownItem>
+      <DropdownItem>Option C</DropdownItem>
+    </Dropdown>
+  ))
+  .add('on Image (end)', () => (
+    <Dropdown end>
+      <img src="https://i.scdn.co/image/2e9f7dcf75d85b94b2de0756fbfa10f8c8692880" />
+      <DropdownItem>Option A</DropdownItem>
+      <DropdownItem>Option B</DropdownItem>
+      <DropdownItem>Option C</DropdownItem>
+    </Dropdown>
   ))
