@@ -78,7 +78,7 @@ class ReccomendedSong extends Component {
                     </div>
                 </div>
 
-                <audio controls autoplay loop ref={this.audioRef}>
+                <audio controls loop ref={this.audioRef}>
                     <source src={this.props.previewUrl} type="audio/mpeg" />
                 </audio>
             </div>
