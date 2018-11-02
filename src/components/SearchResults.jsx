@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../style/SearchResults.css'
+import SongRow from './SongRow';
+import songObject from './models/song';
 
 class SearchResults extends Component {
     render() {
@@ -15,9 +17,9 @@ class SearchResults extends Component {
                     <div className="seperator"></div>
                 </div>
                 <div className="songRows">
-                    <div>Test</div>
-                    <div>Test</div>
-                    <div>Test</div>   
+                    <SongRow selected={false} type="create" song={songObject("key", "title", "artist", "3:46", 174, "C Major", "//:0")}/>
+                    <SongRow selected={false} type="create" song={songObject("key", "title", "artist", "3:46", 174, "C Major", "//:0")}/>
+                    <SongRow selected={false} type="create" song={songObject("key", "title", "artist", "3:46", 174, "C Major", "//:0")}/>
                 </div>
             </div>
         );
