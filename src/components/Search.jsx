@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../style/Search.css'
 
 class Search extends Component {
     constructor(props){
@@ -52,28 +53,27 @@ class Search extends Component {
     render() {
         //state/props shortcuts
         const {data} = this.state;
-        const {suggestions} = this.props
 
         return (
-            <div>
-                <form onSubmit={this.onSubmit}>
-                    <input 
-                        id="songTitle"
-                        name="songTitle"
-                        type="text" 
-                        placeholder="song title"
-                        value={data.songTitle}
-                        onChange={this.onChange}
-                        autoComplete="off"
-                    />
-                    <input type="submit" value="Search"/>
-                    {
-                        Object.values(suggestions).map((song) => 
-                        <ul key={song.ID}>{JSON.stringify(song)}</ul>
-                        )
-                    }
-                </form>    
-            </div>
+            <nav>
+                <div className="logo">
+
+                </div>
+                <div className="searchBar">
+                    <form onSubmit={this.onSubmit}>
+                        <input 
+                            id="songTitle"
+                            name="songTitle"
+                            className="searchInput"
+                            type="text" 
+                            placeholder="Search for a song ..."
+                            value={data.songTitle}
+                            onChange={this.onChange}
+                            autoComplete="off"
+                        />
+                    </form>    
+                </div>
+            </nav>
         );
     }
 }
