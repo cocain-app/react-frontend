@@ -2,6 +2,8 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import Search from '../components/Search';
+
+import SearchResults from '../components/SearchResults';
 import SongRow from '../components/SongRow';
 import songObject from '../components/models/song';
 
@@ -14,7 +16,7 @@ storiesOf('Searchbar', module)
 // Lukas
 storiesOf('Search Table', module)
   .add('default', () => (
-    <div></div>
+    <SearchResults />
   ))
 
 // Lukas
