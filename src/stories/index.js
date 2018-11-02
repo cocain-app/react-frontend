@@ -2,7 +2,8 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import Search from '../components/Search';
-import CreatePlaylist from '../components/pages/CreatePlaylist';
+import SongRow from '../components/SongRow';
+import songObject from '../components/models/song';
 
 // Lukas
 storiesOf('Searchbar', module)
@@ -18,8 +19,17 @@ storiesOf('Search Table', module)
 
 // Lukas
 storiesOf('Song Row', module)
-  .add('default', () => (
-    <div></div>
+  .add('unselected', () => (
+    <SongRow selected={false} type="create" song={songObject("key", "title", "artist", "3:46", 174, "C Major", "//:0")}/>
+  ))
+  .add('selected', () => (
+    <SongRow selected={true} type="dropdown" song={songObject("key", "title", "artist", "3:46", 174, "C Major", "//:0")}/>
+  ))
+  .add('inPlaylist', () => (
+    <SongRow selected={false} type="dropdown" song={songObject("key", "title", "artist", "3:46", 174, "C Major", "//:0")}/>
+  ))
+  .add('transition', () => (
+    <SongRow selected={false} type="add" song={songObject("key", "title", "artist", "3:46", 174, "C Major", "//:0")}/>
   ))
 
 // Ben

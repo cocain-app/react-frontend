@@ -1,0 +1,87 @@
+.rowWrapper{
+    width: 100%;
+    height: 75px;
+    border-radius: 5px;
+    padding: 12px;
+    background-color: rgb(247, 247, 247)  
+}
+
+.rowWrapper:hover{
+    background-color: rgb(209, 209, 209)        
+}
+
+.songRow{
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 40% 15% 15% 15% 15%;
+    grid-template-rows: 1fr;
+    font-family: sans-serif;
+}
+
+.selected{
+    background-color: rgb(209, 209, 209) 
+}
+
+.mainData{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.coverImage{
+    min-height: 75px;
+    min-width: 75px;
+    box-sizing: border-box;
+    background-color: black;
+    margin-right: 5%;
+}
+
+.songData{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.songTitle{
+    font-size: 1.5rem;
+    color: black;
+}
+
+.songArtist{
+    font-size: 1rem;
+    color: rgba(0,0,0,0.6);
+}
+
+.songRow .meta{
+    display: flex;
+    align-items: center;
+    line-height: 100%;
+    font-size: 1.2rem;
+    color: rgba(0,0,0,0.6);
+}
+
+.rowButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rowButton .create{
+    font-size: 1.2rem;
+    color: rgba(0,0,0,0.6);
+    padding: 10px 20px 10px 20px;
+    border: solid rgba(0,0,0,0.6) 1px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.rowButton .dropdown{
+    font-size: 2.5rem;
+    color: rgba(0,0,0,0.6);
+    margin-top: -20px;
+    cursor: pointer;
+}
