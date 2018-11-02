@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import Search from '../components/Search';
-import CreatePlaylist from '../components/pages/CreatePlaylist';
+import SearchResults from '../components/SearchResults';
 
 // Lukas
 storiesOf('Searchbar', module)
@@ -13,7 +13,7 @@ storiesOf('Searchbar', module)
 // Lukas
 storiesOf('Search Table', module)
   .add('default', () => (
-    <div></div>
+    <SearchResults />
   ))
 
 // Lukas
