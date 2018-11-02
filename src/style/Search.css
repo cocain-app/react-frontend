@@ -1,0 +1,52 @@
+nav{
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+    width: 100%;
+    background-color: lightgrey;
+}
+
+.logo{
+    height: 100%;
+    width: 140px;
+    background-color: grey;
+}
+
+.searchBar{
+    height: 100%;
+    width: 100%;
+    padding: 0px 10px 0px 20px;
+}
+
+.searchBar form{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.searchInput{
+    height: 100px;
+    width: 80%;
+    line-height: 60px;
+    font-size: 1.4rem;
+    color: black;
+    background-color: transparent;
+    border: none;
+    margin-right: 20px;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.searchButton{
+    width: 30px;
+    height: 30px;
+    justify-self: flex-end;
+    background-color: transparent;
+    background: url('../images/search-solid.svg');
+    background-repeat: no-repeat;
+}
+
+

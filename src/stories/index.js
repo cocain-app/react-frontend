@@ -1,11 +1,13 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
+import Search from '../components/Search';
+import CreatePlaylist from '../components/pages/CreatePlaylist';
 
 // Lukas
 storiesOf('Searchbar', module)
   .add('default', () => (
-    <div></div>
+    <Search submit={() => console.log("")} />
   ))
 
 // Lukas

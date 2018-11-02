@@ -49,6 +49,11 @@ class CreatePlaylist extends Component {
         <h1>Create Playlist</h1>
         <div className="App">
           <Search submit={data => this.searchSuggestions(data)} suggestions={suggestions} />
+          {
+              Object.values(suggestions).map((song) => 
+              <ul key={song.ID}>{JSON.stringify(song)}</ul>
+              )
+          }
         </div>
       </div>
     );
