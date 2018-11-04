@@ -16,6 +16,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "lint": "./node_modules/.bin/eslint --ext .jsx --ext .js .",
+    "lint:fix": "./node_modules/.bin/eslint --ext .jsx --ext .js . --fix",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   },
@@ -35,6 +37,7 @@
     "@storybook/addons": "^4.0.2",
     "@storybook/react": "^4.0.2",
     "babel-loader": "^8.0.4",
+    "eslint": "^5.8.0",
     "eslint-plugin-react": "^7.11.1"
   }
 }
