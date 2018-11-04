@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = "http://127.0.0.1:8000/api"; //TODO: Add dotenv support (-> webpack config)
+const API_URL = "http://104.248.242.11:8000/api"; //TODO: Add dotenv support (-> webpack config)
 
 //structured API requests (e.g. api.songs.search(data).then(searchResult => ...))
 export default {
@@ -17,16 +17,16 @@ export default {
         {
             get: id =>
                 axios.get(`${API_URL}/playlist/${id}`).then(res => res.data),
-            create: data => 
+            create: data =>
                 axios.post(`${API_URL}/playlist`, {headers: data}).then(res => res.data),
-            put: id => 
+            put: id =>
                 axios.put(`${API_URL}/playlist/${id}`).then(res => res.data),
         },
-    auth: 
+    auth:
         {
             login: credentials =>
                 axios.post(`${API_URL}/auth`, {headers: credentials}).then(res => res.data),
             register: user =>
-                axios.put(`${API_URL}/auth`, {headers: user}).then(res => res.data),    
+                axios.put(`${API_URL}/auth`, {headers: user}).then(res => res.data),
         }
 }

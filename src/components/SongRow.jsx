@@ -7,7 +7,7 @@ class SongRow extends Component {
 
         this.state = {
             selected: this.props.selected,
-            id: this.props.song.id
+            id: this.props.id
         }
     }
 
@@ -37,28 +37,25 @@ class SongRow extends Component {
             default:
                 return
         }
-    } 
+    }
 
     render() {
-        const {selected} = this.state;
-        const {type} = this.props;
-        const {title, artist, dur, bpm, key, coverURL} = this.props.song;
-
+      console.log(this.props);
         return (
-            <div className={`rowWrapper ${selected ? 'selected' : ''}`}>
+            <div className={`rowWrapper ${this.props.selected ? 'selected' : ''}`}>
                 <div className={"songRow"}>
                     <div className="mainData">
-                        <div className="coverImage" src={coverURL}></div>
+                        <div className="coverImage" src={this.props.coverURL}></div>
                         <div className="songData">
-                            <span className="songTitle">{title}</span>
-                            <span className="songArtist">{artist}</span>
+                            <span className="songTitle">{this.props.title}</span>
+                            <span className="songArtist">{this.props.artist}</span>
                         </div>
                     </div>
-                    <span className="meta">{dur}</span>
-                    <span className="meta">{bpm}</span>
-                    <span className="meta">{key}</span>
+                    <span className="meta">{this.props.duration}</span>
+                    <span className="meta">{this.props.bpm}</span>
+                    <span className="meta">{this.props.musicalKey}</span>
                     <div className="rowButton">
-                        {this.getButton(type)}
+                        {this.getButton(this.props.type)}
                     </div>
                 </div>
             </div>

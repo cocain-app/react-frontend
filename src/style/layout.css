@@ -1,0 +1,17 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.container {
+    padding: 24px 48px;
+    padding-left: 140px;
+}
+
+.sticky-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+}

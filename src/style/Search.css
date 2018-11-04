@@ -4,11 +4,13 @@ nav{
     height: 80px;
     width: 100%;
     background-color: lightgrey;
+    flex-shrink: 0;
 }
 
 .logo{
     height: 100%;
     width: 140px;
+    flex-shrink: 0;
     background-color: grey;
 }
 

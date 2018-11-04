@@ -3,11 +3,11 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Search from '../components/Search';
 
-import SearchResults from '../components/SearchResults';
+import SongTable from '../components/SongTable';
 import SongRow from '../components/SongRow';
 import songObject from '../components/models/song';
 
-import ReccomendedSong from '../components/RecommendedSong';
+import ReccomendedSong from '../components/ReccomendedSong';
 import Reccomendations from '../components/Reccomendations';
 import PlaylistHead from '../components/PlaylistHead';
 import Dropdown, { DropdownItem, DropdownGroup } from '../components/Dropdown';
@@ -21,7 +21,9 @@ storiesOf('Searchbar', module)
 // Lukas
 storiesOf('Search Table', module)
   .add('default', () => (
-    <SearchResults />
+    <SongTable headers={["Track", "Length", "BPM", "Key"]}>
+      <SongRow selected={false} type="create" song={songObject("key", "title", "artist", "3:46", 174, "C Major", "//:0")}/>
+    </SongTable>
   ))
 
 // Lukas
@@ -48,7 +50,9 @@ storiesOf('Playlist Head', module)
 // Ben
 storiesOf('Playlist Table', module)
   .add('default', () => (
-    <div></div>
+    <SongTable headers={["Track", "Length", "BPM", "Key"]}>
+      <SongRow type="dropdown" selected={false} song={songObject("key", "title", "artist", "3:46", 174, "C Major", "//:0")}/>
+    </SongTable>
   ))
 
 // Ben

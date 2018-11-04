@@ -1,6 +1,7 @@
 .PlaylistHead {
   display: flex;
   align-items: center;
+  margin-top: 32px;
 }
 
 .PlaylistHead img {
