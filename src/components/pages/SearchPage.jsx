@@ -21,7 +21,7 @@ class SearchPage extends Component {
                 <SongRow
                   key={suggestion.Song.ID}
                   selected={false}
-                  type="create"
+                  type={context.playlist.songs.length > 0 ? "add" : "create" }
                   id={suggestion.Song.ID}
                   artist={suggestion.Song.Artist}
                   bpm={suggestion.Song.BPM}

@@ -9,7 +9,7 @@ class SongTable extends Component {
         <div className="header">
           <div className="headerGrid">
             { this.props.headers.map(header => (
-              <span>{ header }</span>
+              <span key={header}>{ header }</span>
             )) }
           </div>
           <div className="seperator"></div>

@@ -11,7 +11,7 @@ export const DropdownGroup = ({children}) => (
 )
 
 export const DropdownTarget = ({children, clickHandler}) => (
-  <span onClick={() => clickHandler()}>
+  <span onClick={clickHandler}>
     { children }
   </span>
 )
@@ -21,11 +21,14 @@ class Dropdown extends Component {
     super(props)
 
     this.state = {
-      expanded: true
+      expanded: false
     }
   }
 
-  toggle() {
+  toggle(e) {
+    e.preventDefault()
+    e.stopPropagation()
+
     this.setState({
       expanded: !this.state.expanded
     })
@@ -34,7 +37,7 @@ class Dropdown extends Component {
   render() {
     return (
       <div className={`Dropdown ${this.props.start ? "start" : ""} ${this.props.end ? "end" : ""}`}>
-        <DropdownTarget clickHandler={() => this.toggle()}>
+        <DropdownTarget clickHandler={(e) => this.toggle(e)}>
           { this.props.children[0] }
         </DropdownTarget>
 

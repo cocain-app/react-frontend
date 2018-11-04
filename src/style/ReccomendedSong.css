@@ -29,9 +29,11 @@
 }
 
 .ReccomendedSong img {
-	height: 100%;
-	background-color: #aaa;
+	height: 64px;
+	width: 64px;
+	background-color: #000;
 	margin-right: 24px;
+	flex-shrink: 0;
 }
 
 .ReccomendedSong h4 {

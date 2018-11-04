@@ -18,6 +18,10 @@
     font-weight: 600;
 }
 
+.headerGrid span {
+  padding-left: 20px;
+}
+
 .seperator{
     height: 1px;
     width: 100%;

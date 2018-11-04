@@ -12,7 +12,6 @@ class Reccomendations extends Component {
   }
 
   collapse() {
-    console.log("Test")
     this.setState({
       expanded: false
     })
@@ -42,7 +41,11 @@ class Reccomendations extends Component {
               <div className="view">
                 { this.props.children }
               </div>
-              <span className="next">></span>
+
+              {
+                //TODO: Enable scrolling
+                false && <span className="next">></span>
+              }
             </div>
           ) : (<div />) }
 

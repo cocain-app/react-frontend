@@ -33,32 +33,32 @@ class Search extends Component {
 
   render() {
     return (
-        <AppContext.Consumer>
-          {(context) => (
-            <nav>
-              <div className="logo">
+      <AppContext.Consumer>
+        {(context) => (
+          <nav>
+            <div className="logo">
 
-              </div>
-              <div className="searchBar">
-                <form>
-                  <input
-                    ref={this.searchInputRef}
-                    id="songTitle"
-                    name="songTitle"
-                    className="searchInput"
-                    type="text"
-                    placeholder="Search for a song ..."
-                    value={ context.search.query }
-                    onInput={ (e) => this.onInput(e, context) }
-                    autoComplete="off"
-                  />
-                </form>
-              </div>
-            </nav>
-          )}
-        </AppContext.Consumer>
-      )
-    }
+            </div>
+            <div className="searchBar">
+              <form>
+                <input
+                  ref={this.searchInputRef}
+                  id="songTitle"
+                  name="songTitle"
+                  className="searchInput"
+                  type="text"
+                  placeholder="Search for a song ..."
+                  value={ context.search.query }
+                  onInput={ (e) => this.onInput(e, context) }
+                  autoComplete="off"
+                />
+              </form>
+            </div>
+          </nav>
+        )}
+      </AppContext.Consumer>
+    )
+  }
 }
 
 export default withRouter(Search)

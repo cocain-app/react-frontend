@@ -15,7 +15,7 @@ import Dropdown, { DropdownItem, DropdownGroup } from "../components/Dropdown"
 // Lukas
 storiesOf("Searchbar", module)
   .add("default", () => (
-    <Search submit={() => console.log("")} />
+    <Search />
   ))
 
 // Lukas

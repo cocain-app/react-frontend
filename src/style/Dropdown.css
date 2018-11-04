@@ -1,6 +1,7 @@
 .Dropdown {
   width: fit-content;
   position: relative;
+  user-select: none;
 }
 
 .Dropdown.start .wrapper {
@@ -18,16 +19,20 @@
   position: absolute;
   margin: 0 auto;
   box-sizing: border-box;
+  margin-top: 12px;
 }
 
 .Dropdown .wrapper .menu {
-  width: fit-content;
+  flex-shrink: 0;
+  width: auto;
   display: flex;
   flex-direction: column;
   padding: 8px 0px;
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 4px;
   list-style: none;
+  background: #fff;
+  box-sizing: content-box;
 }
 
 .Dropdown .DropdownGroup:first-of-type {
@@ -35,12 +40,14 @@
 }
 
 .DropdownItem {
+  width: 100%;
   min-width: 90px;
-  height: 24px;
+  height: 40px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 2px 24px;
+  padding: 4px 24px;
+  box-sizing: border-box;
 }
 
 .DropdownItem:hover {

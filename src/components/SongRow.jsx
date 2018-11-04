@@ -3,6 +3,8 @@ import { withRouter } from "react-router-dom"
 
 import { AppContext } from "../context"
 
+import Dropdown, { DropdownItem } from "./Dropdown"
+
 import "../style/SongRow.css"
 
 class SongRow extends Component {
@@ -15,7 +17,7 @@ class SongRow extends Component {
     }
   }
 
-  createPlaylist = (id, context) => {
+  addAndNavigate = (id, context) => {
     context.playlist.addSong(this.props.id)
     this.props.history.push("/playlist/")
   }
@@ -39,16 +41,20 @@ class SongRow extends Component {
             {(context) => {
               if(this.props.type === "dropdown") {
                 return <div className="rowButton">
-                  <div className="dropdown">...</div>
+                  <Dropdown>
+                    <div className="dropdown">...</div>
+                    <DropdownItem>Show song details</DropdownItem>
+                    <DropdownItem>Remove from Playlist</DropdownItem>
+                  </Dropdown>
                 </div>
               } else if (this.props.type === "add") {
                 return <div className="rowButton"
-                  onClick={() => context.playlist.addSong(this.props.id)}>
+                  onClick={() => this.addAndNavigate(this.props.id, context)}>
                   <div className="create">Add</div>
                 </div>
               } else if (this.props.type === "create") {
                 return <div className="rowButton"
-                  onClick={() => this.createPlaylist(this.props.id, context)}>
+                  onClick={() => this.addAndNavigate(this.props.id, context)}>
                   <div className="create">Create</div>
                 </div>
               }

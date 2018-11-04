@@ -57,7 +57,7 @@ class PlaylistEditor extends Component {
                 title={context.playlist.title}
                 description={context.playlist.description}
                 numberOfSongs={context.playlist.songs.length}
-                coverUrl="https://i.scdn.co/image/2e9f7dcf75d85b94b2de0756fbfa10f8c8692880" />
+                coverUrl={context.playlist.songs.length > 0 ? context.playlist.songs[0].coverURL : ""} />
             ) }
           </AppContext.Consumer>
 
