@@ -1,0 +1,36 @@
+.PlaylistHead {
+  display: flex;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.PlaylistHead img {
+  margin-right: 24px;
+  height: 180px;
+  width: 180px;
+  background: #000;
+}
+
+.PlaylistHead .content p {
+  margin: 0;
+  color: #aaa;
+  margin-bottom: 6px;
+}
+
+.PlaylistHead .content h1 {
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.PlaylistHead .content span {
+  margin: 0;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.PlaylistHead .content .options {
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #aaa;
+}

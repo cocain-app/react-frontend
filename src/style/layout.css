@@ -1,0 +1,16 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.container {
+    padding: 24px 48px;
+    padding-left: 140px;
+}
+
+.scroller {
+    height: 100%;
+    overflow: scroll;
+    padding-bottom: 40px;
+}
