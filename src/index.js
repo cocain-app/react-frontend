@@ -8,7 +8,9 @@ import * as serviceWorker from "./config/serviceWorker"
 import SearchPage from "./components/pages/SearchPage"
 import PlaylistEditor from "./components/pages/PlaylistEditor"
 
-import { AppContext, AppProvider } from "./context"
+import { AppProvider } from "./context"
+
+import "./style/index.css"
 
 const root = document.getElementById("root") //root element from dom
 

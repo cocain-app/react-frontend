@@ -9,16 +9,48 @@ import PlaylistHead from "../PlaylistHead"
 import Reccomendations from "../Reccomendations"
 import ReccomendedSong from "../ReccomendedSong"
 
+import api from "../../api"
+
 import "../../style/layout.css"
 
 class PlaylistEditor extends Component {
+  constructor(props){
+    super(props)
+
+    this.state = {
+      selectedId: null,
+      selectedName: "",
+      reccomendations: []
+    }
+  }
+
+  selectSong = (id, title, artist) => {
+    if(this.state.selectedId === id){
+      this.setState({
+        ...this.state,
+        selectedId: null,
+        reccomendations: [],
+        selectedName: ""
+      })
+    } else {
+      api.songs.transitions(id)
+        .then(reccomendations => {
+          this.setState({
+            ...this.state,
+            selectedId: id,
+            reccomendations: reccomendations,
+            selectedName: `${title} - ${artist}`
+          })
+        })
+    }
+  }
+
   render() {
     return (
-
       <div className="App">
         <Search />
 
-        <div className="container">
+        <div className="container scroller">
           <AppContext.Consumer>
             { (context) => (
               <PlaylistHead
@@ -32,20 +64,41 @@ class PlaylistEditor extends Component {
           <SongTable headers={["Track", "Length", "BPM", "Key"]}>
             <AppContext.Consumer>
               { (context) => context.playlist.songs.map(song => (
-                <SongRow selected={false} type="create"/>
+                <SongRow
+                  onClick={() => this.selectSong(song.ID, song.Title, song.Artist)}
+                  key={song.ID}
+                  selected={this.state.selectedId === song.ID}
+                  type="dropdown"
+                  id={song.ID}
+                  artist={song.Artist}
+                  bpm={song.BPM}
+                  musicalKey={song.Key}
+                  duration={song.Duration}
+                  title={song.Title} />
               ))
               }
             </AppContext.Consumer>
           </SongTable>
         </div>
 
-        <div className="sticky-bottom">
-          <Reccomendations base="If I Could - Camo & Krooked">
-            <ReccomendedSong title="True Romance" artist="dBridge & Vegas" bpm="174" musicalKey="A# Major" previewUrl="https://p.scdn.co/mp3-preview/1ef229fc359e6844919f4a3be0f3153e7eac974c?cid=774b29d4f13844c495f206cafdad9c86" coverUrl="https://i.scdn.co/image/8e74d0392b762e929afc2ffeb90c47d550693bd2"/>
-            <ReccomendedSong title="Stratos" artist="Champion (DnB)" bpm="174" musicalKey="C# Minor" previewUrl="https://p.scdn.co/mp3-preview/3cf98206d740d73b619366f48a2d3bfae81d8e69?cid=774b29d4f13844c495f206cafdad9c86" coverUrl="https://i.scdn.co/image/1378aab6c96b1b97335254e665c8c422651aadfa"/>
-            <ReccomendedSong title="Loving You Is Easy (S.P.Y Remix)" artist="Camo & Krooked" bpm="172" musicalKey="A# Major" previewUrl="https://p.scdn.co/mp3-preview/22a0e2be86c7bc3b1a08ac156eba912dc10aae34?cid=774b29d4f13844c495f206cafdad9c86" coverUrl="https://i.scdn.co/image/2e9f7dcf75d85b94b2de0756fbfa10f8c8692880"/>
+        { this.state.selectedId && (
+          <Reccomendations base={this.state.selectedName}>
+            { this.state.reccomendations.Transition && this.state.reccomendations.Transition.map(transition => {
+              const song = transition.ToSong
+              return (
+                <ReccomendedSong
+                  id={song.ID}
+                  key={song.ID}
+                  title={song.Title}
+                  artist={song.Artist}
+                  bpm={song.BPM}
+                  musicalKey={song.Key}
+                  previewUrl={song.PreviewUrl}
+                  coverUrl={song.CoverUrl} />
+              )
+            }) }
           </Reccomendations>
-        </div>
+        ) }
       </div>
 
     )

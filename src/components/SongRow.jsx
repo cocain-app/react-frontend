@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { withRouter } from "react-router-dom"
 
 import { AppContext } from "../context"
 
@@ -14,55 +15,49 @@ class SongRow extends Component {
     }
   }
 
-  getButton(type) {
-    switch(type){
-    case "create":
-      //TODO: Change to Link
-      return (
-        <div className="create">
-          Create
-        </div>
-      )
-    case "dropdown":
-      //TODO: Change to dropdown menu
-      return (
-        <div className="dropdown">
-          ...
-        </div>
-      )
-    case "add":
-      //TODO: Change to dropdown menu
-      return (
-        <div className="create">
-          Add
-        </div>
-      )
-    default:
-      return
-    }
+  createPlaylist = (id, context) => {
+    context.playlist.addSong(this.props.id)
+    this.props.history.push("/playlist/")
   }
 
   render() {
     return (
-      <div className={`rowWrapper ${this.props.selected ? "selected" : ""}`}>
+      <div className={`rowWrapper ${this.props.selected ? "selected" : ""}`} onClick={this.props.onClick}>
         <div className={"songRow"}>
           <div className="mainData">
-            <div className="coverImage" src={this.props.coverURL}></div>
+            <div className="coverImage" src={ this.props.coverURL }></div>
             <div className="songData">
-              <span className="songTitle">{this.props.title}</span>
-              <span className="songArtist">{this.props.artist}</span>
+              <span className="songTitle">{ this.props.title }</span>
+              <span className="songArtist">{ this.props.artist }</span>
             </div>
           </div>
-          <span className="meta">{this.props.duration}</span>
-          <span className="meta">{this.props.bpm}</span>
-          <span className="meta">{this.props.musicalKey}</span>
-          <div className="rowButton">
-            {this.getButton(this.props.type)}
-          </div>
+          <span className="meta">{ this.props.duration }</span>
+          <span className="meta">{ this.props.bpm }</span>
+          <span className="meta">{ this.props.musicalKey }</span>
+
+          <AppContext.Consumer>
+            {(context) => {
+              if(this.props.type === "dropdown") {
+                return <div className="rowButton">
+                  <div className="dropdown">...</div>
+                </div>
+              } else if (this.props.type === "add") {
+                return <div className="rowButton"
+                  onClick={() => context.playlist.addSong(this.props.id)}>
+                  <div className="create">Add</div>
+                </div>
+              } else if (this.props.type === "create") {
+                return <div className="rowButton"
+                  onClick={() => this.createPlaylist(this.props.id, context)}>
+                  <div className="create">Create</div>
+                </div>
+              }
+            }}
+          </AppContext.Consumer>
         </div>
       </div>
     )
   }
 }
 
-export default SongRow
+export default withRouter(SongRow)

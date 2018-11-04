@@ -1,10 +1,12 @@
 .ReccomendedSong {
-	width: 400px;
+	width: 30%;
 	height: 120px;
 	border: 1px solid #aaa;
 	border-radius: 4px;
 	overflow: hidden;
 	position: relative;
+	flex-shrink: 0;
+	margin-right: 3.3%;
 }
 
 .ReccomendedSong > .container {

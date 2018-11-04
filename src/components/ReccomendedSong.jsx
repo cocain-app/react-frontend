@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 
+import { AppContext } from "../context"
+
 import "../style/ReccomendedSong.css"
 
 class ReccomendedSong extends Component {
@@ -46,42 +48,45 @@ class ReccomendedSong extends Component {
 
   render() {
     return (
-      <div className="ReccomendedSong"
-        onMouseEnter={() => this.handleMouseEnter()}
-        onMouseLeave={() => this.handleMouseLeave()}>
-        { this.state.hovered ? (
-          <div className="overlay">
+      <AppContext.Consumer>
+        { (context) => <div className="ReccomendedSong"
+          onMouseEnter={() => this.handleMouseEnter()}
+          onMouseLeave={() => this.handleMouseLeave()}>
+          { this.state.hovered ? (
+            <div className="overlay">
 
-            { this.state.playing ? (
-              <span className="pause" onClick={() => this.stopAudioPlayback()}>||</span>
-            ) : (
-              <span className="play" onClick={() => this.startAudioPlayback()}>►</span>
-            ) }
+              { this.state.playing ? (
+                <span className="pause" onClick={() => this.stopAudioPlayback()}>||</span>
+              ) : (
+                <span className="play" onClick={() => this.startAudioPlayback()}>►</span>
+              ) }
 
-            <span className="add">+</span>
+              <span className="add" onClick={() => context.playlist.addSong(this.props.id)}>+</span>
+            </div>
+          ) : (
+            <div></div>
+          ) }
+
+          <div className="container">
+            <img src={this.props.coverUrl} alt="Cover" />
+            <div className="meta">
+              <h4>{this.props.title}</h4>
+              <p>
+                <span>{this.props.artist}</span>
+                <span>·</span>
+                <span>{this.props.bpm}</span>
+                <span>·</span>
+                <span>{this.props.musicalKey}</span>
+              </p>
+            </div>
           </div>
-        ) : (
-          <div></div>
-        ) }
 
-        <div className="container">
-          <img src={this.props.coverUrl} alt="Cover" />
-          <div className="meta">
-            <h4>{this.props.title}</h4>
-            <p>
-              <span>{this.props.artist}</span>
-              <span>·</span>
-              <span>{this.props.bpm}</span>
-              <span>·</span>
-              <span>{this.props.musicalKey}</span>
-            </p>
-          </div>
+          <audio controls loop ref={this.audioRef}>
+            <source src={this.props.previewUrl} type="audio/mpeg" />
+          </audio>
         </div>
-
-        <audio controls loop ref={this.audioRef}>
-          <source src={this.props.previewUrl} type="audio/mpeg" />
-        </audio>
-      </div>
+        }
+      </AppContext.Consumer>
     )
   }
 }

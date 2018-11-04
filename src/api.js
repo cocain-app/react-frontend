@@ -9,7 +9,7 @@ export default {
           search: query =>
             axios.get(`${API_URL}/search`, {headers: query}).then(res => res.data),
           get: id =>
-            axios.get(`${API_URL}/api/songs/get/${id}`).then(res => res.data),
+            axios.get(`${API_URL}/songs/get/${id}`).then(res => res.data),
           transitions: id =>
             axios.get(`${API_URL}/songs/transitions/${id}`).then(res => res.data),
         },

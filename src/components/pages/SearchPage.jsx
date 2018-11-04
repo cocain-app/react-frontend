@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import api from "../../api"
+import { AppContext } from "../../context"
 
 import Search from "../Search"
 import SongTable from "../SongTable"
@@ -9,56 +9,17 @@ import SongRow from "../SongRow"
 import "../../style/layout.css"
 
 class SearchPage extends Component {
-  constructor(props){
-    super(props)
-
-    //suggestions = search suggestions | transitions = song transition (suggestions)
-    this.state = {
-      suggestions: {}
-    }
-  }
-
-  //get the 10 most fitting songs by songname
-  searchSuggestions = data => {
-    //check if field content has been cleared
-    if(data.songTitle !== ""){
-      //trigger api request
-      api.songs.search({songTitle: data.songTitle})
-        .then(searchResults => {
-          //searchResults = data body of response
-          if(searchResults){
-            this.setState({
-              ...this.state,
-              suggestions: searchResults
-            })
-          }else{
-            this.setState({
-              ...this.state,
-              suggestions: {}
-            })
-          }
-        })
-    }else{
-      this.setState({
-        ...this.state,
-        suggestions: {}
-      })
-    }
-  }
-
   render() {
-    //state/props shortcut
-    const {suggestions} = this.state
-
     return (
       <div className="App">
-        <Search submit={data => this.searchSuggestions(data)} suggestions={suggestions} />
+        <Search />
 
         <div className="container">
           <SongTable headers={["Track", "Length", "BPM", "Key"]}>
-            {
-              Object.values(suggestions).map((suggestion) => (
+            <AppContext.Consumer>
+              {(context) => Object.values(context.search.suggestions).map((suggestion) => (
                 <SongRow
+                  key={suggestion.Song.ID}
                   selected={false}
                   type="create"
                   id={suggestion.Song.ID}
@@ -67,8 +28,8 @@ class SearchPage extends Component {
                   musicalKey={suggestion.Song.Key}
                   duration={suggestion.Song.Duration}
                   title={suggestion.Song.Title} />
-              ))
-            }
+              ))}
+            </AppContext.Consumer>
           </SongTable>
         </div>
       </div>
