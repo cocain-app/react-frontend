@@ -1,12 +1,13 @@
 import React from "react"
 
 import { storiesOf } from "@storybook/react"
-import Search from "../components/Search"
+import StoryRouter from "storybook-react-router"
 
+import { AppProvider } from "../context"
+
+import Search from "../components/Search"
 import SongTable from "../components/SongTable"
 import SongRow from "../components/SongRow"
-import songObject from "../components/models/song"
-
 import ReccomendedSong from "../components/ReccomendedSong"
 import Reccomendations from "../components/Reccomendations"
 import PlaylistHead from "../components/PlaylistHead"
@@ -14,45 +15,96 @@ import Dropdown, { DropdownItem, DropdownGroup } from "../components/Dropdown"
 
 // Lukas
 storiesOf("Searchbar", module)
+  .addDecorator(StoryRouter())
   .add("default", () => (
-    <Search />
+    <AppProvider>
+      <Search />
+    </AppProvider>
   ))
 
 // Lukas
-storiesOf("Search Table", module)
+storiesOf("Song Table", module)
+  .addDecorator(StoryRouter())
   .add("default", () => (
     <SongTable headers={["Track", "Length", "BPM", "Key"]}>
-      <SongRow selected={false} type="create" song={songObject("key", "title", "artist", "3:46", 174, "C Major", "//:0")}/>
+      <SongRow
+        selected={false}
+        type="add"
+        id=""
+        artist="Camo & Krooked"
+        bpm="174"
+        musicalKey="C Minor"
+        duration={3123}
+        title="Witchdoctor" />
+      <SongRow
+        selected={false}
+        type="add"
+        id=""
+        artist="Camo & Krooked"
+        bpm="174"
+        musicalKey="C Minor"
+        duration={3123}
+        title="Witchdoctor" />
     </SongTable>
   ))
 
 // Lukas
 storiesOf("Song Row", module)
+  .addDecorator(StoryRouter())
   .add("unselected", () => (
-    <SongRow selected={false} type="create" song={songObject("key", "title", "artist", "3:46", 174, "C Major", "//:0")}/>
+    <SongRow
+      selected={false}
+      type="add"
+      id=""
+      artist="Camo & Krooked"
+      bpm="174"
+      musicalKey="C Minor"
+      duration={3123}
+      title="Witchdoctor" />
   ))
   .add("selected", () => (
-    <SongRow selected={true} type="dropdown" song={songObject("key", "title", "artist", "3:46", 174, "C Major", "//:0")}/>
+    <SongRow
+      selected={true}
+      type="add"
+      id=""
+      artist="Camo & Krooked"
+      bpm="174"
+      musicalKey="C Minor"
+      duration={3123}
+      title="Witchdoctor" />
   ))
-  .add("inPlaylist", () => (
-    <SongRow selected={false} type="dropdown" song={songObject("key", "title", "artist", "3:46", 174, "C Major", "//:0")}/>
+  .add("dropdown", () => (
+    <SongRow
+      selected={true}
+      type="dropdown"
+      id=""
+      artist="Camo & Krooked"
+      bpm="174"
+      musicalKey="C Minor"
+      duration={3123}
+      title="Witchdoctor" />
   ))
-  .add("transition", () => (
-    <SongRow selected={false} type="add" song={songObject("key", "title", "artist", "3:46", 174, "C Major", "//:0")}/>
+  .add("add", () => (
+    <SongRow
+      selected={true}
+      type="add"
+      id=""
+      artist="Camo & Krooked"
+      bpm="174"
+      musicalKey="C Minor"
+      duration={3123}
+      title="Witchdoctor" />
   ))
 
 // Ben
 storiesOf("Playlist Head", module)
   .add("default", () => (
-    <PlaylistHead coverUrl="https://i.scdn.co/image/2e9f7dcf75d85b94b2de0756fbfa10f8c8692880" />
-  ))
-
-// Ben
-storiesOf("Playlist Table", module)
-  .add("default", () => (
-    <SongTable headers={["Track", "Length", "BPM", "Key"]}>
-      <SongRow type="dropdown" selected={false} song={songObject("key", "title", "artist", "3:46", 174, "C Major", "//:0")}/>
-    </SongTable>
+    <PlaylistHead
+      title="Test Playlist"
+      description="Description"
+      numberOfSongs={5}
+      duration={20001}
+      coverUrl="https://i.scdn.co/image/2e9f7dcf75d85b94b2de0756fbfa10f8c8692880" />
   ))
 
 // Ben
