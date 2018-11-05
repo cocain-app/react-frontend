@@ -14,6 +14,8 @@ class SearchPage extends Component {
       <div className="App">
         <Search />
 
+        <div className="bottom-fade"></div>
+
         <div className="container">
           <SongTable headers={["Track", "Length", "BPM", "Key"]}>
             <AppContext.Consumer>

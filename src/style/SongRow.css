@@ -1,26 +1,24 @@
 .rowWrapper{
     width: 100%;
-    height: 75px;
-    border-radius: 5px;
-    padding: 12px;
-    background-color: rgb(247, 247, 247)  
-}
-
-.rowWrapper:hover{
-    background-color: rgb(209, 209, 209)        
+    height: 100%;
+    background-color: var(--main-bg-color);
+    border-top: 1px solid var(--light-bg-color);
 }
 
 .songRow{
     width: 100%;
-
     display: grid;
     grid-template-columns: 40% 15% 15% 15% 15%;
     grid-template-rows: 1fr;
     font-family: sans-serif;
+    padding: 32px 0;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .selected{
-    background-color: rgb(209, 209, 209) 
+    background-color: var(--light-bg-color);
+    box-shadow: -24px 0 0 0 var(--light-bg-color);
 }
 
 .mainData{
@@ -31,10 +29,11 @@
 }
 
 .coverImage{
-    min-height: 75px;
-    min-width: 75px;
+    height: 64px;
+    width: 64px;
+    flex-shrink: 0;
     box-sizing: border-box;
-    background-color: black;
+    background-color: var(--dark-bg-color);
     margin-right: 5%;
 }
 
@@ -48,12 +47,12 @@
 
 .songTitle{
     font-size: 1.5rem;
-    color: black;
+    color: var(--main-text-color);
 }
 
 .songArtist{
     font-size: 1rem;
-    color: rgba(0,0,0,0.6);
+    color: var(--secondary-text-color);
 }
 
 .songRow .meta{
@@ -61,7 +60,7 @@
     align-items: center;
     line-height: 100%;
     font-size: 1.2rem;
-    color: rgba(0,0,0,0.6);
+    color: var(--main-text-color);
 }
 
 .rowButton{
@@ -72,16 +71,16 @@
 
 .rowButton .create{
     font-size: 1.2rem;
-    color: rgba(0,0,0,0.6);
     padding: 10px 20px 10px 20px;
-    border: solid rgba(0,0,0,0.6) 1px;
+    border: solid var(--main-text-color) 1px;
     border-radius: 4px;
     cursor: pointer;
+    color: var(--main-text-color);
 }
 
 .rowButton .dropdown{
     font-size: 2.5rem;
-    color: rgba(0,0,0,0.6);
+    color: var(--main-text-color);
     margin-top: -20px;
     cursor: pointer;
 }

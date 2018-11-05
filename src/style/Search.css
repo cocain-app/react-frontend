@@ -1,23 +1,23 @@
 nav{
     display: flex;
     flex-direction: row;
-    height: 80px;
+    height: 100px;
     width: 100%;
-    background-color: lightgrey;
     flex-shrink: 0;
+    background-color: var(--dark-bg-color);
 }
 
 .logo{
     height: 100%;
-    width: 140px;
+    width: 240px;
     flex-shrink: 0;
-    background-color: grey;
+    background-color: var(--dark-bg-color);
 }
 
 .searchBar{
     height: 100%;
     width: 100%;
-    padding: 0px 10px 0px 20px;
+    padding: 0 24px 0 0;
 }
 
 .searchBar form{
@@ -32,10 +32,14 @@ nav{
     width: 80%;
     line-height: 60px;
     font-size: 1.4rem;
-    color: black;
+    color: var(--main-text-color);
     background-color: transparent;
     border: none;
     margin-right: 20px;
+}
+
+.searchInput::-webkit-input-placeholder {
+    color: var(--secondary-text-color);
 }
 
 textarea:focus, input:focus{

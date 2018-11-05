@@ -8,7 +8,8 @@
   margin-right: 24px;
   height: 180px;
   width: 180px;
-  background: #000;
+  background-color: var(--dark-bg-color);
+  border: none;
 }
 
 .PlaylistHead .content p {
