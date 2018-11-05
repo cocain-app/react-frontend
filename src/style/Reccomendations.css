@@ -5,8 +5,8 @@
   padding: 24px;
   padding-left: 140px;
   box-sizing: border-box;
-  border-top: 1px solid #aaa;
-  background: #fff;
+  border-top: 1px solid var(--secondary-border-color);
+  background: var(--main-bg-color);
   position: absolute;
   bottom: 0;
 }
@@ -17,7 +17,7 @@
 }
 
 .Reccomendations h2 a {
-  color: #000;
+  color: var(--highlight-text-color);
 }
 
 .Reccomendations h2 span {

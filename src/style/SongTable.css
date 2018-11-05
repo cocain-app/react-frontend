@@ -18,21 +18,9 @@
     font-weight: 600;
 }
 
-.headerGrid span {
-  padding-left: 20px;
-}
-
-.seperator{
-    height: 1px;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: rgba(0, 0, 0, 0.2);
-    margin: 15px 0px 15px 0px;
-}
-
 .songRows{
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
     width: 100%;
+    padding-top: 24px;
 }

@@ -28,11 +28,12 @@
   display: flex;
   flex-direction: column;
   padding: 8px 0px;
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid var(--secondary-border-color);
   border-radius: 4px;
   list-style: none;
-  background: #fff;
+  background: var(--light-bg-color);
   box-sizing: content-box;
+  box-shadow: var(--main-box-shadow);
 }
 
 .Dropdown .DropdownGroup:first-of-type {
@@ -48,10 +49,11 @@
   align-items: center;
   padding: 4px 24px;
   box-sizing: border-box;
+  color: var(--secondary-text-color);
 }
 
 .DropdownItem:hover {
-  background-color: rgba(0,0,0,0.1)
+  color: var(--main-text-color);
 }
 
 .DropdownGroup {
