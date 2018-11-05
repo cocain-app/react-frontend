@@ -37,7 +37,6 @@
     "@storybook/addons": "^4.0.2",
     "@storybook/react": "^4.0.2",
     "babel-loader": "^8.0.4",
-    "eslint": "^5.8.0",
     "eslint-plugin-react": "^7.11.1",
     "history": "^4.7.2",
     "storybook-react-router": "^1.0.1"
