@@ -26,8 +26,9 @@ class Reccomendations extends Component {
   render() {
     return (
       <div className="Reccomendations_wrapper">
-        { this.state.expanded && <div className="Reccomendations_pseudo" /> }
         <div className="Reccomendations">
+          <div className="right-fade" />
+
           <h2>Recomended Songs based on <a href="#">{this.props.base}</a>
             { this.state.expanded ? (
               <span className="close" onClick={() => this.collapse()}>▼</span>

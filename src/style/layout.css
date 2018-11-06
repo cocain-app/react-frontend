@@ -10,9 +10,13 @@
 }
 
 .scroller {
-    height: 100%;
+    height: auto;
     overflow: scroll;
     padding-bottom: 40px;
+}
+
+.scroller.suggestions-pseudo {
+  padding-bottom: 300px;
 }
 
 .bottom-fade {
