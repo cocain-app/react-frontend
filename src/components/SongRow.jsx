@@ -22,6 +22,18 @@ class SongRow extends Component {
     this.props.history.push("/playlist/")
   }
 
+  getDurationText() {
+    if(!this.props.duration){
+      return ""
+    }
+
+    let ms = this.props.duration
+    let minutes = parseInt(ms / 1000 / 60)
+    let seconds = `${parseInt((ms / 1000) - (minutes * 60))}`.padStart(2, "0")
+
+    return `${minutes}:${seconds}`
+  }
+
   render() {
     return (
       <div className={`rowWrapper ${this.props.selected ? "selected" : ""}`} onClick={this.props.onClick}>
@@ -33,7 +45,7 @@ class SongRow extends Component {
               <span className="songArtist">{ this.props.artist }</span>
             </div>
           </div>
-          <span className="meta">{ this.props.duration }</span>
+          <span className="meta">{ this.getDurationText() }</span>
           <span className="meta">{ this.props.bpm }</span>
           <span className="meta">{ this.props.musicalKey }</span>
 
