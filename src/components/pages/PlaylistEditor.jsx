@@ -57,7 +57,7 @@ class PlaylistEditor extends Component {
                 title={context.playlist.title}
                 description={context.playlist.description}
                 numberOfSongs={context.playlist.songs.length}
-                coverUrl={context.playlist.songs.length > 0 ? context.playlist.songs[0].coverURL : ""} />
+                coverUrl={context.playlist.songs.length > 0 ? context.playlist.songs[0].ImageURL : ""} />
             ) }
           </AppContext.Consumer>
 
@@ -74,6 +74,7 @@ class PlaylistEditor extends Component {
                   bpm={song.BPM}
                   musicalKey={song.Key}
                   duration={song.Duration}
+                  coverURL={song.ImageURLSmall}
                   title={song.Title} />
               ))
               }
@@ -93,8 +94,8 @@ class PlaylistEditor extends Component {
                   artist={song.Artist}
                   bpm={song.BPM}
                   musicalKey={song.Key}
-                  previewUrl={song.PreviewUrl}
-                  coverUrl={song.CoverUrl} />
+                  previewUrl={song.PreviewURL}
+                  coverUrl={song.ImageURLSmall} />
               )
             }) }
           </Reccomendations>

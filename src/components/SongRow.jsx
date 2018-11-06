@@ -39,7 +39,7 @@ class SongRow extends Component {
       <div className={`rowWrapper ${this.props.selected ? "selected" : ""}`} onClick={this.props.onClick}>
         <div className={"songRow"}>
           <div className="mainData">
-            <div className="coverImage" src={ this.props.coverURL }></div>
+            <img className="coverImage" src={ this.props.coverURL }></img>
             <div className="songData">
               <span className="songTitle">{ this.props.title }</span>
               <span className="songArtist">{ this.props.artist }</span>
