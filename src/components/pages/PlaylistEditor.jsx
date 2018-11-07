@@ -74,6 +74,7 @@ class PlaylistEditor extends Component {
                   musicalKey={song.Key}
                   duration={song.Duration}
                   coverURL={song.ImageURLSmall}
+                  previewUrl={song.PreviewURL}
                   title={song.Title} />
               )) }
             </AppContext.Consumer>

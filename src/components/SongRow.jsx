@@ -5,6 +5,7 @@ import { AppContext } from "../context"
 
 import Dropdown, { DropdownItem } from "./Dropdown"
 import Button from "./Button"
+import CoverImage from "./CoverImage"
 
 import "../style/SongRow.css"
 
@@ -40,7 +41,7 @@ class SongRow extends Component {
       <div className={`rowWrapper ${this.props.selected ? "selected" : ""}`} onClick={this.props.onClick}>
         <div className={"songRow"}>
           <div className="mainData">
-            <img className="coverImage" src={ this.props.coverURL }></img>
+            <CoverImage imageUrl={this.props.coverURL} previewUrl={this.props.previewUrl} />
             <div className="songData">
               <span className="songTitle">{ this.props.title.length > 32 ? `${this.props.title.slice(0, 30)}...` : this.props.title }</span>
               <span className="songArtist">{ this.props.artist }</span>

@@ -25,6 +25,7 @@ class SearchPage extends Component {
                   musicalKey={suggestion.Song.Key}
                   duration={suggestion.Song.Duration}
                   coverURL={suggestion.Song.ImageURLSmall}
+                  previewUrl={suggestion.Song.PreviewURL}
                   title={suggestion.Song.Title} />
               ))}
             </AppContext.Consumer>
