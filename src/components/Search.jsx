@@ -9,10 +9,30 @@ class Search extends Component {
   constructor(props){
     super(props)
 
+    this.state = {
+      progressIndicators: [],
+    }
+
     this.searchInputRef = React.createRef()
   }
 
   onInput = (e, context) => {
+
+    let progressIndicatorType = 0
+    if(this.state.progressIndicators.length > 0) {
+      progressIndicatorType = parseInt(
+        this.state.progressIndicators[this.state.progressIndicators.length - 1]
+      ) + 1
+
+      if(progressIndicatorType === 5){
+        progressIndicatorType = 0
+      }
+    }
+
+    let newState = Object.assign({}, this.state)
+    newState.progressIndicators.push(progressIndicatorType)
+    this.setState(newState)
+
     context.search.onInput(e)
 
     if(e.target.value === "" && context.playlist.songs.length > 0) {
@@ -47,11 +67,20 @@ class Search extends Component {
                   name="songTitle"
                   className="searchInput"
                   type="text"
-                  placeholder="Search for a song ..."
                   value={ context.search.query }
                   onInput={ (e) => this.onInput(e, context) }
                   autoComplete="off"
                 />
+                <label htmlFor="songTitle" className="searchInputLabel">
+                  <span>Search</span>
+
+                  {context.search.query && <div className="progressIndicators">
+                    { this.state.progressIndicators.map(n => (
+                      <div key={n} className={`progressIndicator color-${n}`}></div>
+                    )) }
+                  </div>}
+
+                </label>
               </form>
             </div>
           </nav>

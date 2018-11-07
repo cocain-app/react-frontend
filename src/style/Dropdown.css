@@ -34,6 +34,19 @@
   background: var(--light-bg-color);
   box-sizing: content-box;
   box-shadow: var(--main-box-shadow);
+  opacity: 0;
+  animation: dropdown-menu-unfold ease 0.4s forwards;
+}
+
+@keyframes dropdown-menu-unfold {
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .Dropdown .DropdownGroup:first-of-type {

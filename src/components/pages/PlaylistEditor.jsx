@@ -60,7 +60,6 @@ class PlaylistEditor extends Component {
                 coverUrl={context.playlist.songs.length > 0 ? context.playlist.songs[0].ImageURL : ""} />
             ) }
           </AppContext.Consumer>
-
           <SongTable headers={["Track", "Length", "BPM", "Key"]}>
             <AppContext.Consumer>
               { (context) => context.playlist.songs.map(song => (
@@ -76,8 +75,7 @@ class PlaylistEditor extends Component {
                   duration={song.Duration}
                   coverURL={song.ImageURLSmall}
                   title={song.Title} />
-              ))
-              }
+              )) }
             </AppContext.Consumer>
           </SongTable>
         </div>

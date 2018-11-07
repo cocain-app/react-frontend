@@ -31,7 +31,7 @@ export class AppProvider extends React.Component {
     this.getSearchSuggestions()
   }
 
-  getSearchSuggestions = () => {
+  getSearchSuggestions = async () => {
     let newState = Object.assign({}, this.state)
     api.songs.search({songTitle: this.state.search.query})
       .then(searchResults => {
