@@ -8,6 +8,7 @@ import * as serviceWorker from "./config/serviceWorker"
 
 import SearchPage from "./components/pages/SearchPage"
 import PlaylistEditor from "./components/pages/PlaylistEditor"
+import Search from "./components/Search"
 
 import { AppProvider } from "./context"
 
@@ -22,15 +23,18 @@ ReactDOM.render(
   //(roots aren't restricted currently)
   <AppProvider>
     <BrowserRouter>
-      <AnimatedSwitch
-        atEnter={{ opacity: 0 }}
-        atLeave={{ opacity: 0 }}
-        atActive={{ opacity: 1 }}
-        className="switch-wrapper"
-      >
-        <Route exact path="/" component={SearchPage} />
-        <Route exact path="/playlist" component={PlaylistEditor} />
-      </AnimatedSwitch>
+      <div className="App">
+        <Search />
+        <AnimatedSwitch
+          atEnter={{ opacity: 0 }}
+          atLeave={{ opacity: 0 }}
+          atActive={{ opacity: 1 }}
+          className="switch-wrapper"
+        >
+          <Route exact path="/" component={SearchPage} />
+          <Route exact path="/playlist" component={PlaylistEditor} />
+        </AnimatedSwitch>
+      </div>
     </BrowserRouter>
   </AppProvider>
 

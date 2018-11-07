@@ -2,7 +2,6 @@ import React, { Component } from "react"
 
 import { AppContext } from "../../context"
 
-import Search from "../Search"
 import SongTable from "../SongTable"
 import SongRow from "../SongRow"
 import PlaylistHead from "../PlaylistHead"
@@ -47,9 +46,7 @@ class PlaylistEditor extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Search />
-
+      <div className="Page">
         <div className={`container scroller ${this.state.selectedId && "suggestions-pseudo"}`}>
           <AppContext.Consumer>
             { (context) => (

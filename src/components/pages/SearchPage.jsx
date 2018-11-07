@@ -2,7 +2,6 @@ import React, { Component } from "react"
 
 import { AppContext } from "../../context"
 
-import Search from "../Search"
 import SongTable from "../SongTable"
 import SongRow from "../SongRow"
 
@@ -11,9 +10,7 @@ import "../../style/layout.css"
 class SearchPage extends Component {
   render() {
     return (
-      <div className="App">
-        <Search />
-
+      <div className="Page">
         <div className="bottom-fade"></div>
 
         <div className="container">

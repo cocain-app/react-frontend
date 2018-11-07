@@ -76,7 +76,7 @@ class Search extends Component {
 
                   {context.search.query && <div className="progressIndicators">
                     { this.state.progressIndicators.map(n => (
-                      <div key={n} className={`progressIndicator color-${n}`}></div>
+                      <div className={`progressIndicator color-${n}`}></div>
                     )) }
                   </div>}
 
