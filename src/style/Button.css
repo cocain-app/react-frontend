@@ -1,0 +1,16 @@
+.Button {
+  height: auto;
+  width: auto;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 18px;
+  color: var(--secondary-border-color);
+  border: 1px solid var(--secondary-border-color);
+  transition: color 0.1s ease-out, border 0.2s;
+  cursor: pointer;
+}
+
+.Button:hover {
+  color: var(--main-border-color);
+  border: 1px solid var(--main-border-color);
+}

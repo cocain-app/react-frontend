@@ -10,9 +10,7 @@ import "../../style/layout.css"
 class SearchPage extends Component {
   render() {
     return (
-      <div className="Page">
-        <div className="bottom-fade"></div>
-
+      <div className="Search Page">
         <div className="container">
           <SongTable headers={["Track", "Length", "BPM", "Key"]}>
             <AppContext.Consumer>

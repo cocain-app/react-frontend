@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom"
 import { AppContext } from "../context"
 
 import Dropdown, { DropdownItem } from "./Dropdown"
+import Button from "./Button"
 
 import "../style/SongRow.css"
 
@@ -62,12 +63,12 @@ class SongRow extends Component {
               } else if (this.props.type === "add") {
                 return <div className="rowButton"
                   onClick={() => this.addAndNavigate(this.props.id, context)}>
-                  <div className="create">Add</div>
+                  <Button className="create">Add</Button>
                 </div>
               } else if (this.props.type === "create") {
                 return <div className="rowButton"
                   onClick={() => this.addAndNavigate(this.props.id, context)}>
-                  <div className="create">Create</div>
+                  <Button className="create">Create</Button>
                 </div>
               }
             }}

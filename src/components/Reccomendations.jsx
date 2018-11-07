@@ -27,8 +27,6 @@ class Reccomendations extends Component {
     return (
       <div className="Reccomendations_wrapper">
         <div className="Reccomendations">
-          <div className="right-fade" />
-
           <h2>Recomended Songs based on <a href="#">{this.props.base}</a>
             { this.state.expanded ? (
               <span className="close" onClick={() => this.collapse()}>▼</span>

@@ -19,15 +19,6 @@
   padding-bottom: 300px;
 }
 
-.bottom-fade {
-    height: 20%;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    background: linear-gradient(rgba(0,0,0,0), var(--dark-bg-color));
-    z-index: 11;
-}
-
 .switch-wrapper {
   position: relative;
   width: 100%;
@@ -38,4 +29,19 @@
   position: absolute;
   width: 100%;
   height: 100%;
+}
+
+.Search.Page .container {
+    height: 100%;
+    overflow: scroll;
+    padding-bottom: 120px;
+    mask-image: linear-gradient(
+      180deg,
+      rgba(0,0,0,1) 70%,
+      rgba(0,0,0,0) 95%
+    );
+}
+
+.Playlist.Page .container {
+    height: 100%;
 }

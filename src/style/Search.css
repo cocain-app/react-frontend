@@ -6,6 +6,7 @@ nav{
     flex-shrink: 0;
     background-color: var(--dark-bg-color);
     box-shadow: 0 12px 64px 12px rgba(0,0,0,0.2);
+    z-index: 12;
 }
 
 .logo{
@@ -127,22 +128,22 @@ textarea:focus, input:focus{
 }
 
 .progressIndicator.color-0 {
-    background: #3d49ba;
+    background: var(--color-1);
 }
 
 .progressIndicator.color-1 {
-    background: #9ac5ca;
+    background: var(--color-2);
 }
 
 .progressIndicator.color-2  {
-    background: #88ba3d;
+    background: var(--color-3);
 }
 
 .progressIndicator.color-3  {
-    background: #ba3d88;
+    background: var(--color-4);
 }
 
 .progressIndicator.color-4  {
-    background: #ca9aad;
+    background: var(--color-5);
 }
 

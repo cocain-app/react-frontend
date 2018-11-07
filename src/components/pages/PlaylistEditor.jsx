@@ -46,7 +46,7 @@ class PlaylistEditor extends Component {
 
   render() {
     return (
-      <div className="Page">
+      <div className="Playlist Page">
         <div className={`container scroller ${this.state.selectedId && "suggestions-pseudo"}`}>
           <AppContext.Consumer>
             { (context) => (
