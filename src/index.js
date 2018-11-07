@@ -32,7 +32,7 @@ ReactDOM.render(
           className="switch-wrapper"
         >
           <Route exact path="/" component={SearchPage} />
-          <Route exact path="/playlist" component={PlaylistEditor} />
+          <Route exact path="/playlist/:code?" component={PlaylistEditor} />
         </AnimatedSwitch>
       </div>
     </BrowserRouter>

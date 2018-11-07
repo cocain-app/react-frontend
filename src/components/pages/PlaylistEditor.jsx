@@ -47,6 +47,29 @@ class PlaylistEditor extends Component {
     }
   }
 
+  componentWillMount() {
+    // Decode base64
+    let code = this.props.match.params.code
+    if(code && code.length % 24 === 0) {
+      let codes = []
+      while (code.length) {
+        codes.push(code.substr(0, 24))
+        code = code.substr(24)
+      }
+
+      codes = codes.map(code => Buffer.from(code, "base64").toString("hex"))
+      codes = codes.map(code => `${code.substr(0, 8)}-${code.substr(8, 4)}-${code.substr(12, 4)}-${code.substr(16, 4)}-${code.substr(20)}`)
+
+      this.props.context.playlist.addSongs(codes)
+    }
+  }
+
+  componentDidUpdate() {
+    if(this.props.history.location.pathname === "/playlist/") {
+      window.history.pushState("", "", `${this.props.context.playlist.getCodeString()}`)
+    }
+  }
+
   render() {
     return (
       <div className="Playlist Page">
@@ -105,4 +128,8 @@ class PlaylistEditor extends Component {
   }
 }
 
-export default PlaylistEditor
+export default React.forwardRef((props, ref) => (
+  <AppContext.Consumer>
+    {(context) => <PlaylistEditor {...props} context={context} ref={ref} />}
+  </AppContext.Consumer>
+));

@@ -17,6 +17,8 @@ export class AppProvider extends React.Component {
       },
       playlist: {
         addSong: this.addSong,
+        addSongs: this.addSongs,
+        getCodeString: this.getCodeString,
         title: "Test",
         description: "Test Description",
         songs: []
@@ -68,6 +70,18 @@ export class AppProvider extends React.Component {
 
         this.setState(newState)
       })
+  }
+
+  addSongs = (list) => {
+    for (const id of list) {
+      this.addSong(id)
+    }
+  }
+
+  getCodeString = () => {
+    let ids = this.state.playlist.songs.map(song => song.ID.replace(/-/g, ""))
+    ids = ids.map(id => Buffer.from(id, "hex").toString("base64"))
+    return ids.join("")
   }
 
   render() {
