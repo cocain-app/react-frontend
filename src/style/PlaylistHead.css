@@ -10,6 +10,15 @@
   width: 180px;
   background-color: var(--dark-bg-color);
   border: none;
+  animation: head-fade-in ease-out 0.4s forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.PlaylistHead .content {
+  animation: head-fade-in ease-out 0.4s forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
 }
 
 .PlaylistHead .content p {
@@ -34,4 +43,13 @@
   font-weight: bold;
   cursor: pointer;
   color: #aaa;
+}
+
+@keyframes head-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

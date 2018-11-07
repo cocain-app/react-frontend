@@ -1,6 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import { BrowserRouter, Switch, Route } from "react-router-dom"
+import { BrowserRouter, Route } from "react-router-dom"
+import { AnimatedSwitch } from "react-router-transition"
 import "./style/index.css"
 import dotenv from "dotenv"
 import * as serviceWorker from "./config/serviceWorker"
@@ -21,10 +22,15 @@ ReactDOM.render(
   //(roots aren't restricted currently)
   <AppProvider>
     <BrowserRouter>
-      <Switch>
+      <AnimatedSwitch
+        atEnter={{ opacity: 0 }}
+        atLeave={{ opacity: 0 }}
+        atActive={{ opacity: 1 }}
+        className="switch-wrapper"
+      >
         <Route exact path="/" component={SearchPage} />
         <Route exact path="/playlist" component={PlaylistEditor} />
-      </Switch>
+      </AnimatedSwitch>
     </BrowserRouter>
   </AppProvider>
 
