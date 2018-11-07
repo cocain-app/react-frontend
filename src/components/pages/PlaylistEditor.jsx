@@ -18,16 +18,18 @@ class PlaylistEditor extends Component {
 
     this.state = {
       selectedId: null,
+      selectedIndex: null,
       selectedName: "",
       reccomendations: []
     }
   }
 
-  selectSong = (id, title, artist) => {
-    if(this.state.selectedId === id){
+  selectSong = (id, playlistIndex, title, artist) => {
+    if(this.state.selectedId === id && this.state.selectedIndex === playlistIndex){
       this.setState({
         ...this.state,
         selectedId: null,
+        selectedIndex: null,
         reccomendations: [],
         selectedName: ""
       })
@@ -37,6 +39,7 @@ class PlaylistEditor extends Component {
           this.setState({
             ...this.state,
             selectedId: id,
+            selectedIndex: playlistIndex,
             reccomendations: reccomendations,
             selectedName: `${title} - ${artist}`
           })
@@ -61,9 +64,9 @@ class PlaylistEditor extends Component {
             <AppContext.Consumer>
               { (context) => context.playlist.songs.map(song => (
                 <SongRow
-                  onClick={() => this.selectSong(song.ID, song.Title, song.Artist)}
-                  key={song.ID}
-                  selected={this.state.selectedId === song.ID}
+                  onClick={() => this.selectSong(song.ID, song.Index, song.Title, song.Artist)}
+                  key={`${song.ID}-${song.Index}`}
+                  selected={this.state.selectedId === song.ID && this.state.selectedIndex === song.Index}
                   type="dropdown"
                   id={song.ID}
                   artist={song.Artist}

@@ -48,8 +48,11 @@ export class AppProvider extends React.Component {
     let newState = Object.assign({}, this.state)
     api.songs.get(id)
       .then(songData => {
+        let playlistIndex = this.state.playlist.songs.filter(song => song.ID === id).length
+
         newState.playlist.songs.push({
-          ...songData
+          ...songData,
+          Index: playlistIndex
         })
 
         newState.search.query = ""
