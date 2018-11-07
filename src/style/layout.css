@@ -9,6 +9,12 @@
     padding-left: 160px;
 }
 
+@media (max-width: 960px) {
+    .container {
+      padding: 12px 12px;
+    }
+}
+
 .scroller {
     height: auto;
     overflow: scroll;

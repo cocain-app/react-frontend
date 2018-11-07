@@ -37,14 +37,14 @@
 }
 
 .ReccomendedSong h4 {
-	font-size: 24px;
+	font-size: 1.5em;
 	margin: 0;
 	margin-bottom: 4px;
 	color: var(--main-text-color);
 }
 
 .ReccomendedSong p {
-	font-size: 14px;
+	font-size: 0.875em;
 	margin: 0;
 	color: var(--secondary-text-color);
 	display: flex;
@@ -84,15 +84,22 @@
 
 .add {
 	height: 64px;
-	font-size: 48px;
+	font-size: 3em;
 }
 
 .play {
 	height: 34px;
-	font-size: 32px;
+	font-size: 2em;
 }
 
 .pause {
 	height: 42px;
-	font-size: 32px;
+	font-size: 2em;
+}
+
+@media (max-width: 960px) {
+	.ReccomendedSong {
+		width: 100%;
+		margin-bottom: 12px;
+	}
 }

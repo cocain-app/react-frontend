@@ -13,7 +13,7 @@
     display: grid;
     grid-template-columns: 40% 15% 15% 15% 15%;
     line-height: 20px;
-    font-size: 1.2rem;
+    font-size: 1.2em;
     font-weight: 600;
 }
 
@@ -22,4 +22,18 @@
     grid-template-columns: 1fr;
     width: 100%;
     padding-top: 24px;
+}
+
+@media (max-width: 960px) {
+    .songTable {
+      margin-top: 12px;
+    }
+
+    .headerGrid {
+      display: none;
+    }
+
+    .songRows {
+        padding-top: 0px;
+    }
 }
