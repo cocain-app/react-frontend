@@ -17,7 +17,6 @@ class Search extends Component {
   }
 
   onInput = (e, context) => {
-
     let progressIndicatorType = 0
     if(this.state.progressIndicators.length > 0) {
       progressIndicatorType = parseInt(
@@ -43,9 +42,16 @@ class Search extends Component {
     if(this.props.history.location.pathname !== "/") {
       this.props.history.push("/")
     }
+
+    window.history.pushState("", "", `?query=${context.search.query}`);
   }
 
   componentDidMount() {
+    let query = new URLSearchParams(window.location.search).get("query")
+    if(query) {
+      this.props.context.search.setQuery(query)
+    }
+
     if(this.props.history.location.pathname === "/") {
       this.searchInputRef.current.focus()
     }
@@ -56,15 +62,14 @@ class Search extends Component {
       <AppContext.Consumer>
         {(context) => (
           <nav>
-            <div className="logo">
+            <div className="logo" />
 
-            </div>
             <div className="searchBar">
-              <form>
+              <div className="form">
                 <input
                   ref={this.searchInputRef}
                   id="songTitle"
-                  name="songTitle"
+                  name="query"
                   className="searchInput"
                   type="text"
                   value={ context.search.query }
@@ -76,12 +81,12 @@ class Search extends Component {
 
                   {context.search.query && <div className="progressIndicators">
                     { this.state.progressIndicators.map(n => (
-                      <div className={`progressIndicator color-${n}`}></div>
+                      <div className={`progressIndicator color-${n}`} />
                     )) }
                   </div>}
 
                 </label>
-              </form>
+              </div>
             </div>
           </nav>
         )}
@@ -90,4 +95,8 @@ class Search extends Component {
   }
 }
 
-export default withRouter(Search)
+export default withRouter(React.forwardRef((props, ref) => (
+  <AppContext.Consumer>
+    {(context) => <Search {...props} context={context} ref={ref} />}
+  </AppContext.Consumer>
+)));

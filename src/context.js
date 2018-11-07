@@ -11,6 +11,7 @@ export class AppProvider extends React.Component {
     this.state = {
       search: {
         onInput: this.onSearchInput,
+        setQuery: this.setSearchQuery,
         query: "",
         suggestions: []
       },
@@ -26,6 +27,14 @@ export class AppProvider extends React.Component {
   onSearchInput = (e) => {
     let newState = Object.assign({}, this.state)
     newState.search.query = e.target.value
+    this.setState(newState)
+
+    this.getSearchSuggestions()
+  }
+
+  setSearchQuery = (query) => {
+    let newState = Object.assign({}, this.state)
+    newState.search.query = query
     this.setState(newState)
 
     this.getSearchSuggestions()
