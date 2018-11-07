@@ -34,12 +34,12 @@
 
 .PlaylistHead .content span {
   margin: 0;
-  font-size: 14px;
+  font-size: 0.875em;
   color: #aaa;
 }
 
 .PlaylistHead .content .options {
-  font-size: 24px;
+  font-size: 1.5em;
   font-weight: bold;
   cursor: pointer;
   color: #aaa;
@@ -51,5 +51,11 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@media (max-width: 960px) {
+  .PlaylistHead {
+    margin-top: 12px;
   }
 }

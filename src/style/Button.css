@@ -3,7 +3,7 @@
   width: auto;
   border-radius: 4px;
   padding: 8px 12px;
-  font-size: 18px;
+  font-size: 1.125em;
   color: var(--secondary-border-color);
   border: 1px solid var(--secondary-border-color);
   transition: color 0.1s ease-out, border 0.2s;

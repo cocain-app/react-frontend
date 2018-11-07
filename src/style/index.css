@@ -6,6 +6,13 @@ body {
   font-family: "Lato", sans-serif;
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
+  font-size: 16px;
+}
+
+@media (max-width: 960px) {
+  body {
+    font-size: 14px;  
+  }
 }
 
 code {

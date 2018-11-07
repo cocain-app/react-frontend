@@ -114,12 +114,12 @@
 }
 
 .songTitle{
-    font-size: 1.5rem;
+    font-size: 1.5em;
     color: var(--main-text-color);
 }
 
 .songArtist{
-    font-size: 1rem;
+    font-size: 1em;
     color: var(--secondary-text-color);
 }
 
@@ -127,7 +127,7 @@
     display: flex;
     align-items: center;
     line-height: 100%;
-    font-size: 1.2rem;
+    font-size: 1.2em;
     color: var(--main-text-color);
 }
 
@@ -138,7 +138,7 @@
 }
 
 .rowButton .create{
-    font-size: 1.2rem;
+    font-size: 1.2em;
     padding: 10px 20px 10px 20px;
     border: solid var(--main-text-color) 1px;
     border-radius: 4px;
@@ -147,8 +147,27 @@
 }
 
 .rowButton .dropdown{
-    font-size: 2.5rem;
+    font-size: 2.5em;
     color: var(--main-text-color);
     margin-top: -20px;
     cursor: pointer;
+}
+
+@media (max-width: 960px) {
+    .songRow {
+      display: flex;
+      padding: 12px 0;
+    }
+
+    .songRow .rowButton {
+      justify-self: center;
+    }
+
+    .songRow span.meta {
+      display: none;
+    }
+
+    .selected {
+      box-shadow: -24px 0 0 0 var(--dark-bg-color), 24px 0 0 0 var(--dark-bg-color);
+    }
 }

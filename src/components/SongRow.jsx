@@ -42,7 +42,7 @@ class SongRow extends Component {
           <div className="mainData">
             <img className="coverImage" src={ this.props.coverURL }></img>
             <div className="songData">
-              <span className="songTitle">{ this.props.title }</span>
+              <span className="songTitle">{ this.props.title.length > 32 ? `${this.props.title.slice(0, 30)}...` : this.props.title }</span>
               <span className="songArtist">{ this.props.artist }</span>
             </div>
           </div>
