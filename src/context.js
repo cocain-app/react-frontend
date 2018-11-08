@@ -17,11 +17,36 @@ export class AppProvider extends React.Component {
       },
       playlist: {
         addSong: this.addSong,
+        setDescription: this.setDescription,
+        setTitle: this.setTitle,
+        getOverallDuration: this.getOverallDuration,
         title: "Test",
         description: "Test Description",
         songs: []
       }
     }
+  }
+
+  getOverallDuration = () => {
+    let ms = 0
+
+    for (const song of this.state.playlist.songs) {
+      ms += song.Duration
+    }
+
+    return ms
+  }
+
+  setTitle = (title) => {
+    let newState = Object.assign({}, this.state)
+    newState.playlist.title = title
+    this.setState(newState)
+  }
+
+  setDescription = (description) => {
+    let newState = Object.assign({}, this.state)
+    newState.playlist.description = description
+    this.setState(newState)
   }
 
   onSearchInput = (e) => {

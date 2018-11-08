@@ -27,10 +27,37 @@
   margin-bottom: 6px;
 }
 
-.PlaylistHead .content h1 {
-  margin: 0;
-  margin-bottom: 8px;
+.PlaylistHead .content .input-group {
+  display: flex;
+  margin: 6px 0;
+}
+
+.PlaylistHead .content .input-group input {
+  background: none;
+  border: none;
+  font-family: "Lato", sans-serif;
+  width: auto;
+  padding: 0;
+}
+
+.PlaylistHead .content label {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  margin-left: 4px;
+}
+
+.PlaylistHead .content #title {
   color: var(--main-text-color);
+  font-size: 2rem;
+}
+
+.PlaylistHead .content #description {
+  color: var(--secondary-text-color);
+  font-size: 1em;
 }
 
 .PlaylistHead .content span {

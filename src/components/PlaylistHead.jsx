@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import AutosizeInput from "react-input-autosize"
 
 import Dropdown, { DropdownItem } from "./Dropdown"
 
@@ -11,11 +12,23 @@ class PlaylistHead extends Component {
         <img src={ this.props.coverUrl } alt=""/>
         <div className="content">
           <span>PLAYLIST</span>
-          <h1>{ this.props.title }</h1>
-          <p>{ this.props.description }</p>
+          <div class="input-group">
+            <AutosizeInput className="title" type="text"
+              id="title"
+              onInput={(e) => this.props.context.playlist.setTitle(e.target.value)}
+              value={this.props.title} />
+            <label htmlFor="title">&#xe3c9;</label>
+          </div>
+          <div class="input-group">
+            <AutosizeInput className="description" type="text"
+              id="description"
+              onInput={(e) => this.props.context.playlist.setDescription(e.target.value)}
+              value={this.props.description}/>
+            <label htmlFor="description">&#xe3c9;</label>
+          </div>
           <p>
-            { this.props.numberOfSongs } songs,
-            { this.props.duration }
+            {this.props.numberOfSongs} songs, &nbsp;
+            {parseInt(this.props.duration / 1000 / 60)} minutes
           </p>
           <Dropdown>
             <div className="options">

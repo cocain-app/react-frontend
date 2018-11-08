@@ -54,9 +54,11 @@ class PlaylistEditor extends Component {
           <AppContext.Consumer>
             { (context) => (
               <PlaylistHead
+                context={context}
                 title={context.playlist.title}
                 description={context.playlist.description}
                 numberOfSongs={context.playlist.songs.length}
+                duration={context.playlist.getOverallDuration()}
                 coverUrl={context.playlist.songs.length > 0 ? context.playlist.songs[0].ImageURL : ""} />
             ) }
           </AppContext.Consumer>
