@@ -71,6 +71,7 @@ class PlaylistEditor extends Component {
                   selected={this.state.selectedId === song.ID && this.state.selectedIndex === song.Index}
                   type="dropdown"
                   id={song.ID}
+                  index={song.Index}
                   artist={song.Artist}
                   bpm={song.BPM}
                   musicalKey={song.Key}

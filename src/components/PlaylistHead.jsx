@@ -34,7 +34,7 @@ class PlaylistHead extends Component {
             <div className="options">
               <i class="material-icons">more_horiz</i>
             </div>
-            <DropdownItem>Test</DropdownItem>
+            <DropdownItem onClick={() => this.props.context.playlist.exportPlaylist()}>Export playlist</DropdownItem>
           </Dropdown>
         </div>
       </div>

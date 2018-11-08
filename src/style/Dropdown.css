@@ -28,10 +28,10 @@
   display: flex;
   flex-direction: column;
   padding: 8px 0px;
-  border: 1px solid var(--secondary-border-color);
+  border: 1px solid var(--dropdown-border-color);
   border-radius: 4px;
   list-style: none;
-  background: var(--light-bg-color);
+  background: var(--dropdown-background);
   box-sizing: content-box;
   box-shadow: var(--main-box-shadow);
   opacity: 0;

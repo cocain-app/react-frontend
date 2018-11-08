@@ -2,8 +2,8 @@ import React, { Component } from "react"
 
 import "../style/Dropdown.css"
 
-export const DropdownItem = ({children}) => (
-  <li className="DropdownItem">{children}</li>
+export const DropdownItem = ({children, onClick}) => (
+  <li className="DropdownItem" onClick={onClick}>{children}</li>
 )
 
 export const DropdownGroup = ({children}) => (

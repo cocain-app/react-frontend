@@ -17,9 +17,11 @@ export class AppProvider extends React.Component {
       },
       playlist: {
         addSong: this.addSong,
+        removeSong: this.removeSong,
         setDescription: this.setDescription,
         setTitle: this.setTitle,
         getOverallDuration: this.getOverallDuration,
+        exportPlaylist: this.exportPlaylist,
         title: "Test",
         description: "Test Description",
         songs: []
@@ -93,6 +95,16 @@ export class AppProvider extends React.Component {
 
         this.setState(newState)
       })
+  }
+
+  removeSong = (id, index) => {
+    let newState = Object.assign({}, this.state)
+    newState.playlist.songs = newState.playlist.songs.filter(song => song.ID !== id && song.Index !== index)
+    this.setState(newState)
+  }
+
+  exportPlaylist = () => {
+    alert("Not supported yet!")
   }
 
   render() {

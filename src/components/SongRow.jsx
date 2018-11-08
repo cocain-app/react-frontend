@@ -36,6 +36,12 @@ class SongRow extends Component {
     return `${minutes}:${seconds}`
   }
 
+  removeSong(e, context, id, index) {
+    e.preventDefault()
+    e.stopPropagation()
+    context.playlist.removeSong(id, index)
+  }
+
   render() {
     return (
       <div className={`rowWrapper ${this.props.selected ? "selected" : ""}`} onClick={this.props.onClick}>
@@ -59,8 +65,9 @@ class SongRow extends Component {
                     <div className="dropdown">
                       <i class="material-icons">more_horiz</i>
                     </div>
-                    <DropdownItem>Show song details</DropdownItem>
-                    <DropdownItem>Remove from Playlist</DropdownItem>
+                    <DropdownItem onClick={
+                      (e) => this.removeSong(e, context, this.props.id, this.props.index)
+                    }>Remove from Playlist</DropdownItem>
                   </Dropdown>
                 </div>
               } else if (this.props.type === "add") {
