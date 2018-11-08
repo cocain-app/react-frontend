@@ -57,9 +57,13 @@ class CoverImage extends Component {
         onMouseEnter={(e) => this.handleMouseEnter(e)}>
         { this.state.hovered && <div className="overlay">
           { this.state.playing ? (
-            <span className="pause" onClick={(e) => this.stopAudioPlayback(e)}>||</span>
+            <span className="pause" onClick={(e) => this.stopAudioPlayback(e)}>
+              <i class="material-icons">pause</i>
+            </span>
           ) : (
-            <span className="play" onClick={(e) => this.startAudioPlayback(e)}>►</span>
+            <span className="play" onClick={(e) => this.startAudioPlayback(e)}>
+              <i class="material-icons">play_arrow</i>
+            </span>
           ) }
         </div> }
 

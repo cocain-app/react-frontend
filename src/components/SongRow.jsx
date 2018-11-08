@@ -56,7 +56,9 @@ class SongRow extends Component {
               if(this.props.type === "dropdown") {
                 return <div className="rowButton">
                   <Dropdown>
-                    <div className="dropdown">...</div>
+                    <div className="dropdown">
+                      <i class="material-icons">more_horiz</i>
+                    </div>
                     <DropdownItem>Show song details</DropdownItem>
                     <DropdownItem>Remove from Playlist</DropdownItem>
                   </Dropdown>

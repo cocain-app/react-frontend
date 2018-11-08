@@ -32,15 +32,6 @@
 }
 
 .CoverImage .play, .CoverImage .pause {
-	font-weight: bold;
-  font-size: 2rem;
 	cursor: pointer;
-}
-
-.CoverImage .play {
-	margin-top: -4px;
-}
-
-.CoverImage .pause {
-	margin-top: -2px;
+  height: auto;
 }

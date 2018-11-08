@@ -147,10 +147,12 @@
 }
 
 .rowButton .dropdown{
-    font-size: 2.5em;
     color: var(--main-text-color);
-    margin-top: -20px;
     cursor: pointer;
+}
+
+.rowButton .dropdown .material-icons {
+    font-size: 28px !important;
 }
 
 @media (max-width: 960px) {

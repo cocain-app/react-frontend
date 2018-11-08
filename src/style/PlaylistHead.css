@@ -23,26 +23,31 @@
 
 .PlaylistHead .content p {
   margin: 0;
-  color: #aaa;
+  color: var(--secondary-text-color);
   margin-bottom: 6px;
 }
 
 .PlaylistHead .content h1 {
   margin: 0;
   margin-bottom: 8px;
+  color: var(--main-text-color);
 }
 
 .PlaylistHead .content span {
   margin: 0;
   font-size: 0.875em;
-  color: #aaa;
+  color: var(--secondary-text-color);
 }
 
 .PlaylistHead .content .options {
   font-size: 1.5em;
   font-weight: bold;
   cursor: pointer;
-  color: #aaa;
+  color: var(--secondary-text-color);
+}
+
+.PlaylistHead .content .options .material-icons {
+  font-size: 28px !important;
 }
 
 @keyframes head-fade-in {

@@ -27,11 +27,16 @@ class Reccomendations extends Component {
     return (
       <div className="Reccomendations_wrapper">
         <div className="Reccomendations">
-          <h2>Recomended Songs based on <a href="#">{this.props.base}</a>
+          <h2>
+            <p>Recomended Songs based on <a href="#">{this.props.base}</a></p>
             { this.state.expanded ? (
-              <span className="close" onClick={() => this.collapse()}>▼</span>
+              <span className="close" onClick={() => this.collapse()}>
+                <i class="material-icons">expand_more</i>
+              </span>
             ) : (
-              <span className="expand" onClick={() => this.expand()}>▲</span>
+              <span className="expand" onClick={() => this.expand()}>
+                <i class="material-icons">expand_less</i>
+              </span>
             ) }
           </h2>
 
@@ -40,11 +45,6 @@ class Reccomendations extends Component {
               <div className="view">
                 { this.props.children }
               </div>
-
-              {
-                //TODO: Enable scrolling
-                false && <span className="next">></span>
-              }
             </div>
           ) : (<div />) }
 

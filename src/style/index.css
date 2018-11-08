@@ -11,7 +11,7 @@ body {
 
 @media (max-width: 960px) {
   body {
-    font-size: 14px;  
+    font-size: 14px;
   }
 }
 
@@ -22,6 +22,10 @@ code {
 html, body, #root {
   height: 100%;
   width: 100%;
+}
+
+.material-icons {
+  font-size: 38px;
 }
 
 :root {

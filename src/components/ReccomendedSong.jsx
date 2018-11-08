@@ -56,12 +56,18 @@ class ReccomendedSong extends Component {
             <div className="overlay">
 
               { this.state.playing ? (
-                <span className="pause" onClick={() => this.stopAudioPlayback()}>||</span>
+                <span className="pause" onClick={() => this.stopAudioPlayback()}>
+                  <i class="material-icons">pause</i>
+                </span>
               ) : (
-                <span className="play" onClick={() => this.startAudioPlayback()}>►</span>
+                <span className="play" onClick={() => this.startAudioPlayback()}>
+                  <i class="material-icons">play_arrow</i>
+                </span>
               ) }
 
-              <span className="add" onClick={() => context.playlist.addSong(this.props.id)}>+</span>
+              <span className="add" onClick={() => context.playlist.addSong(this.props.id)}>
+                <i class="material-icons">add</i>
+              </span>
             </div>
           ) : (
             <div></div>

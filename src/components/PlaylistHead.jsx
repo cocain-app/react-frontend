@@ -18,7 +18,9 @@ class PlaylistHead extends Component {
             { this.props.duration }
           </p>
           <Dropdown>
-            <div className="options">...</div>
+            <div className="options">
+              <i class="material-icons">more_horiz</i>
+            </div>
             <DropdownItem>Test</DropdownItem>
           </Dropdown>
         </div>
