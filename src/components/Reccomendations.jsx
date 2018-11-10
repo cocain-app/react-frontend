@@ -7,7 +7,8 @@ class Reccomendations extends Component {
     super(props)
 
     this.state = {
-      expanded: true
+      expanded: true,
+      remainingScroll: 0
     }
   }
 
@@ -20,6 +21,14 @@ class Reccomendations extends Component {
   expand() {
     this.setState({
       expanded: true
+    })
+  }
+
+  onScroll = (e) => {
+    let remainingScroll = (e.target.scrollWidth - e.target.clientWidth) - e.target.scrollLeft
+    this.setState({
+      ...this.state,
+      remainingScroll: remainingScroll
     })
   }
 
@@ -42,7 +51,9 @@ class Reccomendations extends Component {
 
           { this.state.expanded ? (
             <div className="wrapper">
-              <div className="view">
+              <div
+                onScroll={(e) => this.onScroll(e)}
+                className={`view ${this.state.remainingScroll < 300 ? "no-fade" : "fade"}`}>
                 { this.props.children }
               </div>
             </div>

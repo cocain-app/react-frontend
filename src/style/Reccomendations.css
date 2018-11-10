@@ -94,11 +94,19 @@
   width: 100%;
   display: flex;
   overflow: scroll;
+  transition: mask-image 0.5s ease;
+}
+
+.wrapper .view.fade {
   mask-image: linear-gradient(
     90deg,
     rgba(0,0,0,1) 80%,
     rgba(0,0,0,0) 95%
   );
+}
+
+.wrapper .view.no-fade {
+  mask-image: none;
 }
 
 .wrapper .view .ReccomendedSong:last-of-type {
@@ -137,7 +145,9 @@
     max-height: 25vh;
     flex-direction: column;
     padding: 0px 2px;
+  }
 
+  .wrapper .view.fade {
     mask-image: linear-gradient(
       180deg,
       rgba(0,0,0,1) 80%,
