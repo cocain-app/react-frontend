@@ -120,6 +120,12 @@
   text-align: center;
 }
 
+.Reccomendations .placeholder {
+  height: 120px;
+  transform: none;
+  margin-left: -80px;
+}
+
 @media (max-width: 960px) {
   .Reccomendations {
     padding-left: 0;
