@@ -12,7 +12,7 @@ class SearchPage extends Component {
     return (
       <div className="Search Page">
         <div className="container">
-          <SongTable headers={["Track", "Length", "BPM", "Key"]}>
+          <SongTable headers={["Track", <i class="material-icons">schedule</i>, "BPM", "Key"]}>
             <AppContext.Consumer>
               {(context) => Object.values(context.search.suggestions).map((suggestion) => (
                 <SongRow

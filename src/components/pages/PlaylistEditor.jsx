@@ -62,7 +62,7 @@ class PlaylistEditor extends Component {
                 coverUrl={context.playlist.songs.length > 0 ? context.playlist.songs[0].ImageURL : ""} />
             ) }
           </AppContext.Consumer>
-          <SongTable headers={["Track", "Length", "BPM", "Key"]}>
+          <SongTable headers={["Track", <i class="material-icons">schedule</i>, "BPM", "Key"]}>
             <AppContext.Consumer>
               { (context) => context.playlist.songs.map(song => (
                 <SongRow

@@ -1,12 +1,12 @@
 .ReccomendedSong {
 	width: 30%;
 	height: 120px;
-	border: 1px solid var(--secondary-border-color);
 	border-radius: 4px;
 	overflow: hidden;
 	position: relative;
 	flex-shrink: 0;
 	margin-right: 3.3%;
+	background-color: var(--dark-bg-color);
 }
 
 .ReccomendedSong > .container {
@@ -31,7 +31,7 @@
 .ReccomendedSong img {
 	height: 64px;
 	width: 64px;
-	background-color: var(--dark-bg-color);
+	background-color: var(--main-bg-color);
 	margin-right: 24px;
 	flex-shrink: 0;
 }

@@ -26,7 +26,8 @@
 }
 
 .Reccomendations h2 a {
-  color: var(--highlight-text-color);
+  color: var(--main-text-color);
+  margin-left: 2px;
 }
 
 .Reccomendations h2 span {

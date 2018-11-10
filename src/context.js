@@ -147,7 +147,13 @@ export class AppProvider extends React.Component {
 
   removeSong = (id, index) => {
     let newState = Object.assign({}, this.state)
-    newState.playlist.songs = newState.playlist.songs.filter(song => song.ID !== id && song.Index !== index)
+    newState.playlist.songs = this.state.playlist.songs.filter(song => {
+      if(song.ID !== id) return true
+      else {
+        if(song.Index !== index) return true
+        return false
+      }
+    })
     this.setState(newState)
   }
 
