@@ -52,11 +52,7 @@ export class AppProvider extends React.Component {
   }
 
   onSearchInput = (e) => {
-    let newState = Object.assign({}, this.state)
-    newState.search.query = e.target.value
-    this.setState(newState)
-
-    this.getSearchSuggestions()
+    this.setSearchQuery(e.target.value)
   }
 
   setSearchQuery = (query) => {
@@ -69,7 +65,59 @@ export class AppProvider extends React.Component {
 
   getSearchSuggestions = async () => {
     let newState = Object.assign({}, this.state)
-    api.songs.search({songTitle: this.state.search.query})
+
+    const bpmRe = /bpm:[\d\w-]*/
+    const keyRe = /key:[\d\w-]*/
+
+    let query = this.state.search.query
+
+    let bpmFrom
+    let bpmTo
+    let key
+    let mode
+
+    try {
+      let bpmString = query.match(bpmRe)[0]
+      if(bpmString) {
+        let bpmChunks = bpmString.replace("bpm:", "").split("-")
+        if(bpmChunks.length > 1) {
+          bpmFrom = parseInt(bpmChunks[0])
+          bpmTo = parseInt(bpmChunks[1])
+        }
+        else {
+          let bpm = parseInt(bpmString.replace(/[^\d]*/g, ""))
+          bpmFrom = bpm
+          bpmTo = bpm
+        }
+      }
+    } catch {
+      // Do nothing
+    }
+
+    try {
+      let keyString = query.match(keyRe)[0]
+      if(keyString) {
+        keyString = keyString.replace("key:", "").toLowerCase()
+        key = keyString.replace(/[^\d]*/g, "")
+        mode = keyString.replace(key, "") === "d" ? 0 : 1
+      }
+    } catch {
+      // Do nothing
+    }
+
+    let cleanQuery = query.replace(bpmRe, "")
+      .replace(keyRe, "")
+      .replace(/\s{2,}/g, " ")
+      .trim()
+
+    let queryObject = {}
+    if(cleanQuery.length > 0) queryObject.query = cleanQuery
+    if(bpmFrom) queryObject.fromBpm = bpmFrom
+    if(bpmTo) queryObject.toBpm = bpmTo
+    if(key) queryObject.key = key
+    if(mode !== undefined) queryObject.mode = mode
+
+    api.songs.search(queryObject)
       .then(searchResults => {
         if(searchResults){
           newState.search.suggestions = searchResults
